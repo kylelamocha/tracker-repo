@@ -4,4 +4,4 @@ Tracker project by Kyle and Chris
 
 ##Tools to be used:
 
-*Bootstrap for designing
+*Basic html and css for designing
