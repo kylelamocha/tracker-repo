@@ -2,4 +2,6 @@
 
 Tracker project by Kyle and Chris
 
-HELLO
+##Tools to be used:
+
+*Bootstrap for designing
