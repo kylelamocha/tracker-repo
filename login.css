@@ -20,7 +20,7 @@ body {
 }
 
 .screen {		
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	background: linear-gradient(90deg, #004FF9, #000000); /*#5D54A4, #7C78B8*/
 	position: relative;	
 	height: 600px;
 	width: 360px;	
@@ -61,7 +61,7 @@ body {
 .screen__background__shape2 {
 	height: 220px;
 	width: 220px;
-	background: #6C63AC;	
+	background: linear-gradient(65deg, #004FF9, #000000); /*#6C63AC*/
 	top: -172px;
 	right: 0;	
 	border-radius: 32px;
@@ -70,7 +70,7 @@ body {
 .screen__background__shape3 {
 	height: 540px;
 	width: 190px;
-	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	background: linear-gradient(250deg, #004FF9, #000000); /*#5D54A4, #6A679E*/
 	top: -24px;
 	right: 0;	
 	border-radius: 32px;
@@ -79,7 +79,7 @@ body {
 .screen__background__shape4 {
 	height: 400px;
 	width: 200px;
-	background: #7E7BB9;	
+	background: #003fc6; /*#7E7BB9*/	
 	top: 420px;
 	right: 50px;	
 	border-radius: 60px;
@@ -99,7 +99,7 @@ body {
 .login__icon {
 	position: absolute;
 	top: 30px;
-	color: #7875B5;
+	color: #12063b; /*#7875B5*/
 }
 
 .login__input {
@@ -117,7 +117,7 @@ body {
 .login__input:focus,
 .login__input:hover {
 	outline: none;
-	border-bottom-color: #6A679E;
+	border-bottom-color: #001440; /*#6A679E*/
 }
 
 .login__submit {
@@ -132,8 +132,8 @@ body {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
+	color: #001440; /*#4C489D*/
+	box-shadow: 0px 1px 1px #4169E1; /*#5C5696*/
 	cursor: pointer;
 	transition: .2s;
 }
@@ -141,14 +141,14 @@ body {
 .login__submit:active,
 .login__submit:focus,
 .login__submit:hover {
-	border-color: #6A679E;
+	border-color: #001440; /*#6A679E*/
 	outline: none;
 }
 
 .button__icon {
 	font-size: 24px;
 	margin-left: auto;
-	color: #7875B5;
+	color: #001440; /*#7875B5*/
 }
 
 .social-login {	
@@ -161,19 +161,3 @@ body {
 	color: #fff;
 }
 
-.social-icons {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
-}
-
-.social-login__icon:hover {
-	transform: scale(1.5);	
-}
