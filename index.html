@@ -16,28 +16,82 @@
 <body>
 
     <nav>
-        <a href="#first"><i class="far fa-user"></i></a>
-        <a href="#second"><i class="fas fa-briefcase"></i></a>
-        <a href="#third"><i class="far fa-file"></i></a>
+        <a href="#home"><i class="fa fa-home"></i></a>
+        <a href="#order"><i class="fas fa-hamburger"></i></a>
+        <a href="#billing"><i class="fas fa-money-bill"></i></a>
         <a href="#fourth"><i class="far fa-address-card"></i></a>
       </nav>
        
      <div class= 'container'> 
-       <section id= 'first'>
-         <h1>First</h1>
+       <section id= 'home'>
+
+         <!--<h1>Home</h1>-->
+
+         <div style="overflow-x:auto;">
+
+          <!--<h1>Home</h1>-->
+          
+          <button class="add_guest">Add Guest</button>
+
+          <table>
+            <tr>
+              <th>Guest No.</th>
+              <th>Guest Name</th>
+              <th>Time In</th>
+              <th>Time Out</th>
+              <th>Guest Status</th>
+              <th>Rate</th>
+              <th>Total</th> 
+            </tr>
+            <tr>
+              <td>1</td>
+              <td contenteditable='true'>Smith</td>
+              <td contenteditable='true'>8</td>
+              <td contenteditable='true'>10</td>
+              <td ALIGN="center">
+                <select>  
+                     <option value="Regular">Regular</option>      
+                     <option value="Student">Student</option>
+                </select>
+              </td>
+              <td contenteditable='true'>50</td>
+              <td contenteditable='true'>50</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td contenteditable='true'>Jackson</td>
+              <td contenteditable='true'>9</td>
+              <td contenteditable='true'contenteditable='true'>10</td>
+              <td ALIGN="center">
+                <select>  
+                     <option value="Regular">Regular</option>      
+                     <option value="Student">Student</option>
+                </select>
+              </td>
+              <td contenteditable='true'>94</td>
+              <td contenteditable='true'>94</td>
+            </tr>
+            
+          </table>
+        </div>
+
+         
+
        </section>
        
-       <section id= 'second'>
-         <h1>Second</h1>
+       <section id= 'order'>
+         <h1>Orders</h1>
        </section>
        
-      <section id= 'third'>
-        <h1>Third</h1>
+      <section id= 'billing'>
+        <h1>Billing</h1>
        </section>
        
       <section id= 'fourth'>
         <h1>Fourth</h1>
        </section>
+
+
      </div>
     
     

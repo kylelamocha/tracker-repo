@@ -34,7 +34,7 @@
       justify-content: space-around;
       flex-direction: column;
       height: 100vh;
-      background: var(--secondary-color);
+      background: #003366;
   }
   
   section {
@@ -46,13 +46,11 @@
       transition: all ease-in .5s;
       display: flex;
       justify-content: center;
-      align-items: center;
   } 
   
   section h1 {
-      color: #fff;
-      font-size: 50px;
-      text-transform: uppercase;
+      color: #000;
+      font-size: 30px;
       opacity: 0;
   }
   
@@ -71,14 +69,14 @@
       animation: 2s fadeIn forwards .5s;
   }
   
-  #first {
-    background:var(--primary-color);
+  #home {
+    background: white;
   }
-  #second {
+  #order {
       background: var(--complimentary-color);
   }
   
-  #third {
+  #billing {
       background: var(--contrast-color);
   }
   
@@ -89,3 +87,36 @@
   @keyframes fadeIn {
       100% { opacity:1 }
   }
+
+  /*btn*/
+.add_guest {
+    background-color: #003366; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .add_guest:hover{
+    background-color: grey;
+  }
+/*table*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+ 
