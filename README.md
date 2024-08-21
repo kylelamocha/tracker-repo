@@ -3,6 +3,7 @@
 Tracker project by Kyle and Chris
 
 ##Tools to be used:
+-VS Code 
 
 *Basic html and css for designing
 -created a login page 
