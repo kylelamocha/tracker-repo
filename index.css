@@ -82,12 +82,19 @@
   }
   
   #billing {
-      background: white;
+  
+  background-color: white;
+
   }
   
   #fourth {
       background: var(--light-color);
   }
+
+.container mb-5 mt-3{
+  background-color: white;
+  
+}
   
   @keyframes fadeIn {
       100% { opacity:1 }
