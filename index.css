@@ -131,7 +131,36 @@ tr:nth-child(even){background-color: #f2f2f2}
   border: 1px solid #ddd;
   margin: 15px;
 }*/
+.bill_btn{
+  text-align: center; 
+	height: 80px;
+	padding-top: 10px;
+	line-height: 18px;
+}
+.proceed_bill{
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#fbfbfb;
+	-webkit-border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-right-radius:8px;
+	-webkit-border-bottom-right-radius:8px;
+	-moz-border-radius-bottomright:8px;
+	border-bottom-right-radius:8px;
+	-webkit-border-bottom-left-radius:8px;
+	-moz-border-radius-bottomleft:8px;
+	border-bottom-left-radius:8px;
+	text-indent:0;
+	border:2px solid #dcdcdc;
+	display:block;
 
+}
+/*menu*/
+/*menu section button*/
 .add_btn{
   text-align: center; 
 	height: 80px;
@@ -160,4 +189,8 @@ tr:nth-child(even){background-color: #f2f2f2}
 	display:block;
   text-decoration: none;
 }
-/*menu*/
+/*add to cart button*/
+.cart :hover{
+  background-color: #88BFB5;
+}
+
