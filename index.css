@@ -193,4 +193,53 @@ tr:nth-child(even){background-color: #f2f2f2}
 .cart :hover{
   background-color: #88BFB5;
 }
+/*cart btn*/
+.trigger {
+  background-color: #ffffff;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  float: right;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  padding-top: 50px; /* Location of the box */
+  left: 0;
+  top: 0;
+  margin: 80px;
+  width: 100px; /* Full width */
+  height: 100%; /* Full height */
+  border-radius: 20px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 70%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
