@@ -125,11 +125,17 @@ th, td {
 
 tr:nth-child(even){background-color: #f2f2f2}
 
-.order_tbl{
+/*.order_tbl{
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
   border: 1px solid #ddd;
   margin: 15px;
+}*/
+
+.add_btn{
+  text-align: center; 
+	height: 50px;
+	padding-top: 10px;
+	line-height: 22px;
 }
 /*menu*/
