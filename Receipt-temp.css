@@ -61,8 +61,8 @@
     border-collapse: collapse;
   }
   td{
-    /*padding: 5px 0 5px 15px; */
-    /*border: 1px solid #EEE */
+    padding: 5px 0 5px 15px; 
+    border: 1px solid #EEE 
   }
     .time {
       font-size: .5em;
