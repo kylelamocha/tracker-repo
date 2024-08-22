@@ -14,6 +14,8 @@ Tracker project by Kyle and Chris
 
 -created a order section (with cart modal)
 ![alt text](image-2.png)
+cart modal
+![alt text](image-4.png)
 
 -created a billing section
 ![alt text](image-3.png)
