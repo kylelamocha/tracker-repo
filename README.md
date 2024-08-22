@@ -21,3 +21,6 @@ cart modal
 ![alt text](image-3.png)
 
 -added log out
+
+Goals:
+*Design inventory (on-going)
