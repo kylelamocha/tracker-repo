@@ -25,3 +25,4 @@ cart modal
 Goals:
 *Design inventory (on-going)
 ![alt text](image-5.png) temporary
+*Design for receipt (on-going)
