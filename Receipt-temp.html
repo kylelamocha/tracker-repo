@@ -29,7 +29,7 @@
 }
 
 .receipt-header h2 {
-  margin-bottom: 10px;
+  margin-bottom: 0;
   font-size: 18px;
 }
 
@@ -78,7 +78,7 @@
         <div class="receipt-header">
 			<i class="fa-solid fa-chart-simple"></i>
             <h2>AORBTS Workhub</h2>
-            <p>Date: </p>
+			<p>Date: <span id="currentDateTime"></span></p>
         </div>
 
         <div class="receipt-details">
@@ -92,6 +92,7 @@
                     <th>Item</th>
                     <th>Qty</th>
                     <th>Price</th>
+					<th>Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -99,27 +100,35 @@
                     <td>Item 1</td>
                     <td>2</td>
                     <td>$10.00</td>
+					<td>$20.00</td>
                 </tr>
                 <tr>
                     <td>Item 2</td>
                     <td>1</td>
                     <td>$15.00</td>
+					<td>$15.00</td>
                 </tr>
                 <tr>
                     <td>Item 3</td>
                     <td>3</td>
                     <td>$5.00</td>
+					<td>$15.00</td>
                 </tr>
             </tbody>
         </table>
 
         <div class="receipt-total">
-            <p>Total: $50.00</p>
+            <p>Total Amount: $50.00</p>
+        </div>
+
+		<div class="receipt-total">
+            <p>Change: $50.00</p>
         </div>
 
         <div class="receipt-footer">
-            <p>Thank you for your purchase!</p>
+            <p>Thank you for your stay & your purchase!</p>
         </div>
+		<script src="receipt-date-time.js"></script>
     </div>
 </body>
 </html>
