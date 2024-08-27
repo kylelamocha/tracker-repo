@@ -28,3 +28,4 @@ Goals:
 *design product section
 ![alt text](image-7.png)
 *Design for receipt (on-going)
+![alt text](image-8.png)
