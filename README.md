@@ -23,6 +23,8 @@ cart modal
 -added log out
 
 Goals:
-*Design inventory (on-going)
-![alt text](image-5.png) temporary
+*Design dashboard (on-going)
+![alt text](image-6.png)
+*design product section
+![alt text](image-7.png)
 *Design for receipt (on-going)
