@@ -210,9 +210,27 @@
                         style="background-color:#60bdf3 ;">Check out</button>
                     </div>
                     <div class="col-xl-8">
-                      <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary text-capitalize"
+                      <button  type="button" onclick="printReceipt()" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary text-capitalize"
                         style="background-color:#60bdf3 ;">Print Receipt</button>
                     </div>
+
+                    <script>
+                      function printReceipt() {
+                          // Open the receipt template in a new window
+                          const printWindow = window.open('Receipt-temp.html', '_blank', 'width=800,height=600');
+                          
+                          // Wait until the content is loaded
+                          printWindow.onload = function() {
+                              // Trigger the print dialog
+                              printWindow.print();
+              
+                              // Close the print window after printing
+                              printWindow.onafterprint = function() {
+                                  printWindow.close();
+                              };
+                          };
+                      }
+                  </script>
                   </div>
           
                 </div>
