@@ -1,82 +1,65 @@
-#invoice-POS{
-  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
-  padding:2mm;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.receipt-container {
+  width: 80mm;
   margin: 0 auto;
-  width: 44mm;
-  background: #FFF;
-  
-  
-::selection {background: #f31544; color: #FFF;}
-::moz-selection {background: #f31544; color: #FFF;}
-h1{
-  font-size: 1.5em;
-  color: #222;
-}
-h2{font-size: .9em;}
-h3{
-  font-size: 1.2em;
-  font-weight: 300;
-  line-height: 2em;
-}
-p{
-  font-size: .7em;
-  color: #666;
-  line-height: 1.2em;
-}
- 
-#top, #mid,#bot{ /* Targets all id with 'col-' */
-  border-bottom: 1px solid #EEE;
+  background-color: #ffffff;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
-#top{min-height: 100px;}
-#mid{min-height: 80px;} 
-#bot{ min-height: 50px;}
+.receipt-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-#top .logo{
-  float: left;
-	height: 60px;
-	width: 60px;
-	background: url(http://michaeltruong.ca/images/logo1.png) no-repeat;
-	background-size: 60px 60px;
+.receipt-header h1 {
+  margin: 0;
+  font-size: 20px;
 }
-.clientlogo{
-  float: left;
-	height: 60px;
-	width: 60px;
-	background: url(http://michaeltruong.ca/images/client.jpg) no-repeat;
-	background-size: 60px 60px;
-  border-radius: 50px;
+
+.receipt-details {
+  margin-bottom: 10px;
 }
-.info{
-  display: block;
-  float:left;
-  margin-left: 0;
+
+.receipt-details p {
+  margin: 5px 0;
+  font-size: 12px;
 }
-.title{
-  float: right;
-}
-.title p{text-align: right;} 
-table{
+
+.receipt-table {
   width: 100%;
   border-collapse: collapse;
-}
-td{
-  padding: 5px 0 5px 15px;
-  border: 1px solid #EEE
-}
-.tabletitle{
-  padding: 5px;
-  font-size: .5em;
-  background: #EEE;
-}
-.service{border-bottom: 1px solid #EEE;}
-.item{width: 24mm;}
-.itemtext{font-size: .5em;}
-
-#legalcopy{
-  margin-top: 5mm;
+  font-size: 12px;
 }
 
-  
-  
+.receipt-table th, .receipt-table td {
+  padding: 5px 0;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+.receipt-total {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.receipt-total p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.receipt-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 10px;
+  color: #999999;
 }
