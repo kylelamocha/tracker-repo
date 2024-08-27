@@ -1,77 +1,134 @@
-<div id="invoice-POS">
-    
-    <center id="top">
-      <div class="logo"></div>
-      <div class="info"> 
-        <h2>AORBTS Workhub</h2>
-      </div><!--End Info-->
-    </center><!--End InvoiceTop-->
-    
-        <p> 
-          Name:
-        </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Receipt</title>
+<style>
+	body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
 
-    
-    <div id="bot">
-       <div class="row">
- 
-					<div id="table">
-						<table>
-							<tr class="tabletitle">
-                                <td class="Check in"><h2>Check in</h2></td>
-                                <td class="Check out"><h2>Check out</h2></td>
-								<td class="item"><h2>Order</h2></td>
-								<td class="Quantity"><h2>Qty</h2></td>
-								<td class="Total"><h2>Sub Total</h2></td>
-							</tr>
+.receipt-container {
+  width: 80mm;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #dddddd;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">(Check in Time)</p></td>
-								<td class="tableitem"><p class="itemtext">(Check out Time)</p></td>
-								<td class="tableitem"><p class="itemtext">$375.00</p></td>
-                                <td class="tableitem"><p class="itemtext">1</p></td>
-                                <td class="tableitem"><p class="itemtext">$375.00</p></td>
-							</tr>
+.receipt-header {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Asset Gathering</p></td>
-								<td class="tableitem"><p class="itemtext">3</p></td>
-								<td class="tableitem"><p class="itemtext">$225.00</p></td>
-							</tr>
+.receipt-header h2 {
+  margin-bottom: 0;
+  font-size: 18px;
+}
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Design Development</p></td>
-								<td class="tableitem"><p class="itemtext">5</p></td>
-								<td class="tableitem"><p class="itemtext">$375.00</p></td>
-							</tr>
+.receipt-details {
+  margin-bottom: 10px;
+}
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Animation</p></td>
-								<td class="tableitem"><p class="itemtext">20</p></td>
-								<td class="tableitem"><p class="itemtext">$1500.00</p></td>
-							</tr>
+.receipt-details p {
+  margin: 5px 0;
+  font-size: 12px;
+}
 
-							<tr class="service">
-								<td class="tableitem"><p class="itemtext">Animation Revisions</p></td>
-								<td class="tableitem"><p class="itemtext">10</p></td>
-								<td class="tableitem"><p class="itemtext">$750.00</p></td>
-							</tr>
+.receipt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
 
-							<tr class="tabletitle">
-								<td></td>
-								<td class="Rate"><h2>Total</h2></td>
-								<td class="payment"><h2>$3,644.25</h2></td>
-							</tr>
+.receipt-table th, .receipt-table td {
+  padding: 5px 0;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
 
-						</table>
-					</div><!--End Table-->
+.receipt-total {
+  margin-top: 10px;
+  text-align: right;
+}
 
-					<div id="legalcopy">
-						<p class="legal"><strong>Thank you!</strong>  
-            <br>Come again and Enjoy!</br>  
-   
-						</p>
-					</div>
+.receipt-total p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
 
-				</div><!--End InvoiceBot-->
-  </div><!--End Invoice-->
+.receipt-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 10px;
+  color: #999999;
+}
+</style>
+</head>
+<body>
+    <div class="receipt-container">
+        <div class="receipt-header">
+			<i class="fa-solid fa-chart-simple"></i>
+            <h2>AORBTS Workhub</h2>
+			<p>Date: <span id="currentDateTime"></span></p>
+        </div>
+
+        <div class="receipt-details">
+            <p><strong>Check in:</strong> (check in)</p>
+            <p><strong>Check out:</strong>(checkout)</p>
+        </div>
+
+        <table class="receipt-table">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+					<th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Item 1</td>
+                    <td>2</td>
+                    <td>$10.00</td>
+					<td>$20.00</td>
+                </tr>
+                <tr>
+                    <td>Item 2</td>
+                    <td>1</td>
+                    <td>$15.00</td>
+					<td>$15.00</td>
+                </tr>
+                <tr>
+                    <td>Item 3</td>
+                    <td>3</td>
+                    <td>$5.00</td>
+					<td>$15.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="receipt-total">
+            <p>Total Amount: $50.00</p>
+        </div>
+
+		<div class="receipt-total">
+            <p>Change: $50.00</p>
+        </div>
+
+        <div class="receipt-footer">
+            <p>Thank you for your stay & your purchase!</p>
+        </div>
+		<script src="receipt-date-time.js"></script>
+    </div>
+</body>
+</html>
