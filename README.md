@@ -3,6 +3,10 @@
 Tracker project by Kyle and Chris
 
 ##Tools to be used:
+-Xammp
+created a database (will add more)
+![alt text](image-9.png)
+NOTE:login functionality is working so far
 -VS Code 
 
 *Basic html and css for designing
@@ -11,6 +15,8 @@ Tracker project by Kyle and Chris
 
 -created a main page (for time in and out)
 ![alt text](image-1.png)
+-created a modal for add guest (will be redesign in the future)
+![alt text](image-10.png)
 
 -created a order section (with cart modal)
 ![alt text](image-2.png)

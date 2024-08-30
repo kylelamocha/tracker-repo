@@ -160,4 +160,14 @@ body {
 	right: 0px;
 	color: #fff;
 }
+/*username/password*/
+.error{
+	background: #ffff;
+	color: red;
+	padding: 10px;
+	width: 95%;
+	font-weight: bold;
+	border-radius: 5px;
+
+}
 

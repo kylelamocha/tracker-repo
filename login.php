@@ -13,35 +13,28 @@
     
 </head>
 <body>
-    <?php
-
-    require_once "db.php";
-
-    
-
-    
-    
-    
-    
-    
-    ?>
 
     <div class="container">
         <div class="screen">
             <div class="screen__content">
                 
-                <form class="login"  method="post" action="">
+                <form class="login"  method="POST" action="login_user.php">
+                   
+                   <?php
+                   if (isset($_GET['error'])){ ?>
+                      <p class="error"><?php echo $_GET ['error'];?></p>
+
+                    <?php }?>
+
                     <div class="login__field">
                         <i class="login__icon fas fa-user"></i>
-                        <input type="text" class="login__input" placeholder="Email" name="email" 
-                        required >
-                       
-                       
+                        <input type="text" class="login__input" placeholder="User name" name="username">
+                        
                     </div>
                     <div class="login__field">
                         <i class="login__icon fas fa-lock"></i>
-                        <input type="password" class="login__input" placeholder="Password" name="password"
-                        required>
+                        <input type="password" class="login__input" placeholder="Password" name="password">
+                        
                           
                     </div>
                    

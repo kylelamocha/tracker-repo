@@ -20,7 +20,7 @@
         <a href="#home"><i class="fa fa-home"></i></a>
         <a href="#order"><i class="fas fa-hamburger"></i></a>
         <a href="#billing"><i class="fas fa-money-bill"></i></a>
-        <a href="#fourth"><i class="far fa-address-card"></i></a>
+        <!--<a href="#fourth"><i class="far fa-address-card"></i></a>-->
     </nav>
        
      <div class= 'container'> 
@@ -33,8 +33,9 @@
           <!--<h1>Home</h1>-->
           
           <button class="add_guest">Add Guest</button>
+          <a href="login.php" class="btn_logout">Logout</a>
 
-                    <!-- Modal Form -->
+          <!-- Modal Form -->
           <div id="guestModal" class="modal" style="display:none;">
             <div class="modal-content">
               <span class="close">&times;</span>
@@ -137,13 +138,14 @@
        
         <div style="overflow-x:auto; width: 80%;">
           <h1 style="text-align: center; padding: 6px; font-weight: bold;">Our Menu</h1>
-
+          
+          <!--will implement something here-->
           <!--btn cart here-->
           <button class="trigger" id="myBtn"><i class='fas fa-cart-plus' style='font-size:30px; color: #000'></i></button>
           
-          <div id="myModal" class="modal">
+          <!--<div id="cartModal" class="modal">
 
-            <!-- Modal content -->
+        
             <div class="modal-content">
               <span class="close">&times;</span>
               <p style="font-weight: bold; font-size: 18px;">Cart
@@ -152,7 +154,7 @@
           
           </div>
           <script src="modal.js">
-          </script>
+          </script>-->
               
           <table> <!--class="order_tbl"-->
             <tr>
@@ -290,9 +292,10 @@
 
        </section>
        
-      <section id= 'fourth'>
+      <!--<section id= 'fourth'>
+        <a href="login.php"></a>
         <h1>Log out</h1>
-       </section>
+       </section>-->
 
 
      </div>

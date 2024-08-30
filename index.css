@@ -229,7 +229,7 @@ tr:nth-child(even){background-color: #f2f2f2}
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
+/* Modal Content add guest */
 .modal-content {
   background-color: #fefefe;
   padding: 20px;
@@ -252,4 +252,11 @@ tr:nth-child(even){background-color: #f2f2f2}
   cursor: pointer;
 }
 
+.btn_logout{
+  text-decoration: none;
+  float: right;
+  padding: 10px 10px;
+}
+/*modal for cart
+*/
 

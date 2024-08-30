@@ -1,19 +1,20 @@
-  // Get the modal
-var modal = document.getElementById("myModal");
+const openBtn = document.querySelector(".open-modal-btn");
+const modal = document.querySelector(".modal-overlay");
+const closeBtn = document.querySelector(".close-modal-btn");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+function openModal() {
+	modal.classList.remove("hide");
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+function closeModal(e, clickedOutside) {
+	if (clickedOutside) {
+		if (e.target.classList.contains("modal-overlay"))
+			modal.classList.add("hide");
+	} else modal.classList.add("hide");
 }
+
+openBtn.addEventListener("click", openModal);
+modal.addEventListener("click", (e) => closeModal(e, true));
+closeBtn.addEventListener("click", closeModal);
+
         
