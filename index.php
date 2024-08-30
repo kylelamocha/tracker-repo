@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="index.css" rel="stylesheet">
+    <link rel="stylesheet" href="guestModal.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
     <title>
         Main Page
@@ -31,6 +33,54 @@
           <!--<h1>Home</h1>-->
           
           <button class="add_guest">Add Guest</button>
+
+                    <!-- Modal Form -->
+          <div id="guestModal" class="modal" style="display:none;">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Add New Guest</h2>
+              <form id="addGuestForm">
+                <label for="guestName">Guest Name:</label>
+                <input type="text" id="guestName" name="guestName" required><br><br>
+
+                <label for="timeInHour">Time In:</label>
+                <input type="number" id="timeInHour" name="timeInHour" min="1" max="12" required> :
+                <input type="number" id="timeInMinute" name="timeInMinute" min="0" max="59" required>
+                <select id="timeInAmPm" name="timeInAmPm">
+                  <option value="AM">AM</option>
+                  <option value="PM">PM</option>
+                </select>
+                <br><br>
+
+                <label for="timeOutHour">Time Out:</label>
+                <input type="number" id="timeOutHour" name="timeOutHour" min="1" max="12" required> :
+                <input type="number" id="timeOutMinute" name="timeOutMinute" min="0" max="59" required>
+                <select id="timeOutAmPm" name="timeOutAmPm">
+                  <option value="AM">AM</option>
+                  <option value="PM">PM</option>
+                </select>
+                <br><br>
+
+                <label for="guestStatus">Guest Status:</label>
+                <select id="guestStatus" name="guestStatus">
+                  <option value="Regular">Regular</option>
+                  <option value="Student">Student</option>
+                </select><br><br>
+
+                <label for="rate">Rate:</label>
+                <input type="number" id="rate" name="rate" required><br><br>
+
+                <label for="additional">Additional:</label>
+                <input type="number" id="additional" name="additional" required><br><br>
+
+                <label for="total">Total:</label>
+                <input type="number" id="total" name="total" required><br><br>
+
+                <button type="submit">Add Guest</button>
+              </form>
+            </div>
+          </div>
+
 
           <table>
             <tr>
@@ -246,7 +296,7 @@
 
 
      </div>
-    
+     <script src="guestModal.js"></script>
      
 </body>
 </html>
