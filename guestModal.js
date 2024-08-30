@@ -21,6 +21,22 @@ formInputs.forEach(function(input) {
   input.addEventListener("input", markFormAsDirty);
 });
 
+// Select the time input fields
+var timeInputs = document.querySelectorAll("#timeInHour, #timeInMinute, #timeOutHour, #timeOutMinute");
+
+// Function to limit input length
+function limitInputLength(event) {
+  var input = event.target;
+  if (input.value.length > 2) {
+    input.value = input.value.slice(0, 2); // Limit to 2 characters
+  }
+}
+
+// Add event listeners to each input field
+timeInputs.forEach(function(input) {
+  input.addEventListener("input", limitInputLength);
+});
+
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
