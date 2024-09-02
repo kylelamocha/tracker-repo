@@ -20,8 +20,7 @@ NOTE:login functionality is working so far
 
 -created a order section (with cart modal)
 ![alt text](image-2.png)
-cart modal
-![alt text](image-4.png)
+cart modal (not working anymore)
 
 -created a billing section
 ![alt text](image-3.png)
