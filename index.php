@@ -164,8 +164,39 @@
                 <h2>View Cart</h2>
               </div>
               <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
+              <table>
+                  <tr>
+                    <th>Image Here</th>
+                    <th>Food Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Actions</th>
+                  </tr>
+                  <tr>
+                    <td>will insert in the future</td>
+                    <td>Burger</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Chicken</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td>Ramen</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td><i class="fa fa-times"></i></td>
+                  </tr>
+                  
+                </table>
+                <h5 style="color:red;">Total: <span class="price text-success">89$</span></h5>
+                <button type="button" class="btn btn-success" style="background-color: #003366;">Checkout</button>
               </div>
               
             </div>

@@ -16,11 +16,10 @@ NOTE:login functionality is working so far
 -created a main page (for time in and out)
 ![alt text](image-1.png)
 -created a modal for add guest (will be redesign in the future)
-![alt text](image-10.png)
+![alt text](image-11.png)
 
 -created a order section (with cart modal)
-![alt text](image-2.png)
-cart modal (not working anymore)
+
 
 -created a billing section
 ![alt text](image-3.png)
