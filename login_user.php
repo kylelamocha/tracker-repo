@@ -27,12 +27,21 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $uname && $row['password'] === $pass) {
-            	$_SESSION['username'] = $row['username'];
-            	$_SESSION['id'] = $row['id'];
-            	header("Location: index.php");
-		        exit();
-            }else{
+            if($row["id"]=="2"){	
+
+					$_SESSION["username"]=$username;
+
+					header("location:index.php");
+				}
+
+				elseif($row["id"]=="1")
+				{
+
+					$_SESSION["username"]=$username;
+					
+					header("location:pos_inventory.php");
+				}			
+			else{
 				header("Location: login.php?error=Incorrect Username or password");
 		        exit();
 			}
