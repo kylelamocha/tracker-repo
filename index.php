@@ -46,14 +46,51 @@
                 <h2>Add New Guest</h2>
               </div>
               <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
-              </div>
-              <div class="modal-footer">
-                
-              </div>
-            </div>
+              <form id="addGuestForm">
+                <label for="guestName">Guest Name:</label>
+                <input type="text" id="guestName" name="guestName" required><br><br>
 
+                
+              <!-- Time In Field -->
+              <label for="timeInHour">Time In:</label>
+              <input type="number" id="timeInHour" name="timeInHour" min="1" max="12" maxlength="2" required> :
+              <input type="number" id="timeInMinute" name="timeInMinute" min="0" max="59" maxlength="2" required>
+              <select id="timeInAmPm" name="timeInAmPm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <br><br>
+
+              <!-- Time Out Field -->
+              <label for="timeOutHour">Time Out:</label>
+              <input type="number" id="timeOutHour" name="timeOutHour" min="1" max="12" maxlength="2" required> :
+              <input type="number" id="timeOutMinute" name="timeOutMinute" min="0" max="59" maxlength="2" required>
+              <select id="timeOutAmPm" name="timeOutAmPm">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <br><br>
+
+                <label for="guestStatus">Guest Status:</label>
+                <select id="guestStatus" name="guestStatus">
+                  <option value="Regular">Regular</option>
+                  <option value="Student">Student</option>
+                </select><br><br>
+
+                <label for="rate">Rate:</label>
+                <input type="text" id="rate" name="rate" min="0" required><br><br>
+
+                <label for="additional">Additional:</label>
+                <input type="number" id="additional" name="additional" min="0" required><br><br>
+
+                <label for="total">Total:</label>
+                <input type="text" id="total" name="total" min="0"  required><br><br>
+
+                <button type="submit" class="trigger">Add Guest</button>
+              </form>
+               </div>
+             
+            </div>
             </div>
 
           <table>
@@ -130,9 +167,7 @@
                 <p>Some text in the Modal Body</p>
                 <p>Some other text...</p>
               </div>
-              <div class="modal-footer">
-                <h3></h3>
-              </div>
+              
             </div>
 
             </div>
