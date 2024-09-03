@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="index.css" rel="stylesheet">
-    <link rel="stylesheet" href="guestModal.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -32,58 +31,31 @@
 
           <!--<h1>Home</h1>-->
           
-          <button class="add_guest">Add Guest</button>
+          <!--button for modal 1-->
+          <!--<button class="add_guest" href="#myModal1">Add Guest</button>-->
+          <button class="modal-button" href="#myModal1">Add New Guest</button>
           <a href="login.php" class="logout">Logout</a>
 
-                    <!-- Modal Form -->
-          <div id="guestModal" class="modal" style="display:none;">
+           <!-- The Modal -->
+            <div id="myModal1" class="modal">
+
+            <!-- Modal content -->
             <div class="modal-content">
-              <span class="close">&times;</span>
-              <h2>Add New Guest</h2>
-              <form id="addGuestForm">
-                <label for="guestName">Guest Name:</label>
-                <input type="text" id="guestName" name="guestName" required><br><br>
-
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h2>Add New Guest</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
                 
-              <!-- Time In Field -->
-              <label for="timeInHour">Time In:</label>
-              <input type="number" id="timeInHour" name="timeInHour" min="1" max="12" maxlength="2" required> :
-              <input type="number" id="timeInMinute" name="timeInMinute" min="0" max="59" maxlength="2" required>
-              <select id="timeInAmPm" name="timeInAmPm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-              <br><br>
-
-              <!-- Time Out Field -->
-              <label for="timeOutHour">Time Out:</label>
-              <input type="number" id="timeOutHour" name="timeOutHour" min="1" max="12" maxlength="2" required> :
-              <input type="number" id="timeOutMinute" name="timeOutMinute" min="0" max="59" maxlength="2" required>
-              <select id="timeOutAmPm" name="timeOutAmPm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-              <br><br>
-
-                <label for="guestStatus">Guest Status:</label>
-                <select id="guestStatus" name="guestStatus">
-                  <option value="Regular">Regular</option>
-                  <option value="Student">Student</option>
-                </select><br><br>
-
-                <label for="rate">Rate:</label>
-                <input type="number" id="rate" name="rate" min="0" required><br><br>
-
-                <label for="additional">Additional:</label>
-                <input type="number" id="additional" name="additional" min="0" required><br><br>
-
-                <label for="total">Total:</label>
-                <input type="number" id="total" name="total" min="0"  required><br><br>
-
-                <button type="submit">Add Guest</button>
-              </form>
+              </div>
             </div>
-          </div>
+
+            </div>
+
           <table>
             <tr>
               <th>Guest No.</th>
@@ -139,10 +111,35 @@
         <div style="overflow-x:auto; width: 80%;">
           <h1 style="text-align: center; padding: 6px; font-weight: bold;">Our Menu</h1>
 
-          <!--btn cart here-->
-          <a href="#" class="trigger"><i class='fas fa-cart-plus' style='font-size:30px; color: #000'></i></button></a>
+          
+          <!--<button class="modal-button" href="#myModal2">
+          <i class='fas fa-cart-plus' style='font-size:30px; color: #000'></i></button>-->
+           <!--button for modal 2-->
+          <button class="modal-button" href="#myModal2">View Cart</button>
+
+          <!-- The Modal -->
+            <div id="myModal2" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">×</span>
+                <h2>View Cart</h2>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the Modal Body</p>
+                <p>Some other text...</p>
+              </div>
+              <div class="modal-footer">
+                <h3></h3>
+              </div>
+            </div>
+
+            </div>
            
-              
+
+            <script src="modal.js"></script>
+
           <table> <!--class="order_tbl"-->
             <tr>
               <th>Food</th>
@@ -283,8 +280,7 @@
         <h1>Log out</h1>
        </section>-->
 
-       <script src="guestModal.js"></script>
-
+       
      </div>
 </body>
 </html>
