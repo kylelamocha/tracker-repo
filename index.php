@@ -14,6 +14,9 @@
 
 </head>
 <body>
+<?php
+include("guest_table.php");
+?>
 
     <nav>
         <a href="#home"><i class="fa fa-home"></i></a>
@@ -45,98 +48,74 @@
                 <span class="close">×</span>
                 <h2>Add New Guest</h2>
               </div>
+
               <div class="modal-body">
-              <form id="addGuestForm">
+              <form id="addGuestForm" method="post" action="addguest.php">
                 <label for="guestName">Guest Name:</label>
-                <input type="text" id="guestName" name="guestName" required><br><br>
+                <input type="text" id="guest_name" name="guest_name" required><br><br>
 
-                
-              <!-- Time In Field -->
-              <label for="timeInHour">Time In:</label>
-              <input type="number" id="timeInHour" name="timeInHour" min="1" max="12" maxlength="2" required> :
-              <input type="number" id="timeInMinute" name="timeInMinute" min="0" max="59" maxlength="2" required>
-              <select id="timeInAmPm" name="timeInAmPm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-              <br><br>
+              <label for="timeIn">Enter guest time-in:</label>
+              <input type="datetime-local" id="guest_timein" name="guest_timein" required><br><br>
 
-              <!-- Time Out Field -->
-              <label for="timeOutHour">Time Out:</label>
-              <input type="number" id="timeOutHour" name="timeOutHour" min="1" max="12" maxlength="2" required> :
-              <input type="number" id="timeOutMinute" name="timeOutMinute" min="0" max="59" maxlength="2" required>
-              <select id="timeOutAmPm" name="timeOutAmPm">
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-              </select>
-              <br><br>
-
-                <label for="guestStatus">Guest Status:</label>
-                <select id="guestStatus" name="guestStatus">
+                <label for="guest_status">Guest Status:</label>
+                <select id="guest_status" name="guest_status">
                   <option value="Regular">Regular</option>
                   <option value="Student">Student</option>
                 </select><br><br>
 
-                <label for="rate">Rate:</label>
-                <input type="text" id="rate" name="rate" min="0" required><br><br>
+                <label for="guest_rate">Rate (by guest's status):</label>
+                <input type="text" id="guest_rate" name="guest_rate" min="0" required><br><br>
 
-                <label for="additional">Additional:</label>
-                <input type="number" id="additional" name="additional" min="0" required><br><br>
-
-                <label for="total">Total:</label>
-                <input type="text" id="total" name="total" min="0"  required><br><br>
-
-                <button type="submit" class="trigger">Add Guest</button>
+                <button type="submit" class="trigger" value="Submit">Add Guest</button>
+                
               </form>
                </div>
              
             </div>
             </div>
+           
+            
 
           <table>
+          <?php echo $deleteMsg??''; ?>
+          
             <tr>
+           
               <th>Guest No.</th>
               <th>Guest Name</th>
-              <th>Time In</th>
-              <th>Time Out</th>
+              <th>Time In (Date and Time)</th>
               <th>Guest Status</th>
               <th>Rate</th>
-              <th>Additional</th> 
-              <th>Total</th>
-              <th>Billing</th> 
+              
+              <!--<th>Billing</th> -->
             </tr>
-            <tr>
-              <td>1</td>
-              <td contenteditable='true'>Smith</td>
-              <td contenteditable='true'>8</td>
-              <td contenteditable='true'>10</td>
-              <td ALIGN="center">
-                <select>  
-                     <option value="Regular">Regular</option>      
-                     <option value="Student">Student</option>
-                </select>
-              </td>
-              <td contenteditable='true'>50</td>
-              <td contenteditable='true'>50</td>
-              <td contenteditable='true'>50</td>
-              <td class="bill_btn"><a href="" class="proceed_bill" style="text-decoration: none;">Proceed to Billing</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td contenteditable='true'>Jackson</td>
-              <td contenteditable='true'>9</td>
-              <td contenteditable='true'contenteditable='true'>10</td>
-              <td ALIGN="center">
-                <select>  
-                     <option value="Regular">Regular</option>      
-                     <option value="Student">Student</option>
-                </select>
-              </td>
-              <td contenteditable='true'>50</td>
-              <td contenteditable='true'>94</td>
-              <td contenteditable='true'>94</td>
-              <td class="bill_btn"><a href="" class="proceed_bill" style="text-decoration: none;">Proceed to Billing</a></td>
-            </tr>
+
+            <?php
+                if(is_array($fetchData)){      
+                $sn=1;
+                foreach($fetchData as $data){
+              ?>
+                <tr>
+                
+                <td><?php echo $data['g_id']??''; ?></td>
+                <td><?php echo $data['guest_name']??''; ?></td>
+                <td><?php echo $data['guest_timein']??''; ?></td>
+                <td><?php echo $data['guest_status']??''; ?></td>
+                <td><?php echo $data['guest_rate']??''; ?></td>
+               
+              </tr>
+              <?php
+                $sn++;}}else{ ?>
+                <tr>
+                  <td colspan="8">
+              <?php echo $fetchData; ?>
+            </td>
+              <tr>
+              <?php
+              }?>
+             
+              <!--<td class="bill_btn"><a href="" class="proceed_bill" style="text-decoration: none;">Proceed to Billing</a></td>-->
+            
             
           </table>
         </div>
