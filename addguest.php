@@ -4,7 +4,7 @@ include "db.php";
 
 $guest_name =  $_REQUEST['guest_name'];
 $guest_timein = $_REQUEST['guest_timein'];
-//$guestDateTime = date('h:i A', strtotime($guest_timein));
+//$guest_timein = date('h:i A', strtotime($_REQUEST['guest_timein']));
 $guest_status =  $_REQUEST['guest_status'];
 $guest_rate =  $_REQUEST['guest_rate'];
 

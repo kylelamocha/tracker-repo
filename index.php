@@ -53,7 +53,7 @@ include("guest_table.php");
               <form id="addGuestForm" method="post" action="addguest.php">
                 <label for="guestName">Guest Name:</label>
                 <input type="text" id="guest_name" name="guest_name" required><br><br>
-
+              
               <label for="guest_timein">Enter guest time-in:</label>
               <input type="datetime-local" id="guest_timein" name="guest_timein" required><br><br>
 
