@@ -54,7 +54,7 @@ include("guest_table.php");
                 <label for="guestName">Guest Name:</label>
                 <input type="text" id="guest_name" name="guest_name" required><br><br>
 
-              <label for="timeIn">Enter guest time-in:</label>
+              <label for="guest_timein">Enter guest time-in:</label>
               <input type="datetime-local" id="guest_timein" name="guest_timein" required><br><br>
 
                 <label for="guest_status">Guest Status:</label>
@@ -83,25 +83,30 @@ include("guest_table.php");
            
               <th>Guest No.</th>
               <th>Guest Name</th>
-              <th>Time In (Date and Time)</th>
+              <th>Time In</th>
               <th>Guest Status</th>
               <th>Rate</th>
+              <th>Action</th>
               
               <!--<th>Billing</th> -->
             </tr>
 
             <?php
+                
                 if(is_array($fetchData)){      
                 $sn=1;
                 foreach($fetchData as $data){
+
+                  
               ?>
                 <tr>
                 
                 <td><?php echo $data['g_id']??''; ?></td>
                 <td><?php echo $data['guest_name']??''; ?></td>
-                <td><?php echo $data['guest_timein']??''; ?></td>
+                <td><?php echo $data['guest_timein']?? '' ; ?></td>
                 <td><?php echo $data['guest_status']??''; ?></td>
                 <td><?php echo $data['guest_rate']??''; ?></td>
+                <td><a href="#" style="text-decoration: none; font-size:15px;">Time-out</a></td>
                
               </tr>
               <?php

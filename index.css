@@ -123,8 +123,13 @@ table{
   border: 1px solid #ddd;
 }
 
-th, td {
-  text-align: left;
+th{
+  text-align: center;
+  padding: 8px;
+}
+
+td{
+  text-align: center;
   padding: 8px;
 }
 
