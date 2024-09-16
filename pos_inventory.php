@@ -23,6 +23,10 @@
     </script>
    </head>
 <body>
+
+<?php
+include("prod_table.php");
+?>
   <div class="sidebar">
     <div class="logo-details">
         <i class='bx bx-signal-4'></i>
@@ -141,31 +145,47 @@
 
     <div class="home-content" id="page2" style="display:none">
         <!--<h1 style="padding: 5px 10px;">Products Section</h1>-->
+        <button class="modal-button" href="#myModal3">Add Product</button>
 
-        <button class="add_product" onclick="openForm()">Add Product</button>
+        <!-- The Modal -->
+        <div id="myModal3" class="modal">
 
-        <div class="form-popup" id="myForm">
-          <form action="#" class="form-container">
-            <h2>Add Product Form</h2>
-        
-            <label for="product_num"><b>Product No</b></label>
-            <input type="text" placeholder="Product Number" name="product_num" required>
-        
-            <label for="product_name"><b>Product Name</b></label>
-            <input type="text" placeholder="Enter Product Name" name="product_name" required>
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">×</span>
+              <h2>Add New Product</h2>
+            </div>
 
-            <label for="product_price"><b>Product Price</b></label>
-            <input type="text" placeholder="Enter Product Price" name="product_price" required>
+            <div class="modal-body">
+            <form id="addProd" method="post" action="add_prod.php" enctype="multipart/form-data">
+              <label for="prod_img">Product Image here:</label>
+              <input type="file" name="prod_img" accept="image/jpeg" id="prod_img"><br><br>
 
-            <label for="product_stock"><b>Stock</b></label>
-            <input type="text" placeholder="Enter Product Stock" name="product_stock" required>
-        
-            <button type="submit" class="btn">Add Product</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-          </form>
-        </div>
+              <label for="prod_name">Product Name:</label>
+              <input type="text" id="prod_name" name="prod_name" required><br><br>
+
+              <label for="prod_price">Product Price:</label>
+              <input type="text" id="prod_price" name="prod_price" required><br><br>
+
+              <label for="prod_stock">Product Stock:</label>
+              <input type="number" id="prod_stock" name="prod_stock" required><br><br> 
+
+              <button type="submit" class="trigger" value="Submit">Add Product</button>
+              
+            </form>
+            </div>
+          
+          </div>
+          </div>
+
+          
+          <script src="modal.js"></script>
 
         <div style="overflow-x:auto;">
+
+        <?php echo $deleteMsg??''; ?>
+        
           <table>
             <tr>
               <th>Product No</th>
@@ -173,49 +193,42 @@
               <th>Product Name</th>
               <th>Price</th>
               <th>Stock</th>
-              <th></th>
+              <th>Action</th>
               
             </tr>
-            <tr>
-              <td>1</td>
-              <td><img src="https://i.ibb.co/LrpN56T/chiken.jpg" alt="chiken" border="0" width="200" 
-                height="150"></td>
-              <td>Chicken and Fries</td>
-             
-              <td>50</td>
-              <td>6</td>
-              <td><a class="btn_edit" href="#">Edit</a></td>
-              
-              
-            </tr>
-            <tr>
-              <td>2</td>
-              <td><img src="https://i.ibb.co/8P6kgc1/burger.jpg" alt="burger" border="0" width="200" 
-                height="150"></td>
-              <td>Burger and Fries</td>
-       
-              <td>94</td>
-              <td>6</td>
-              <td><a class="btn_edit" href="#">Edit</a></td>
-             
-              
-            </tr>
-            <tr>
-              <td>3</td>
-              <td><img src="https://i.ibb.co/YQLjzsC/carbo.jpg" alt="carbo" border="0" width="200" 
-                height="150"></td>
-              <td>Carbonara</td>
-     
-              <td>67</td>
-              <td>6</td>
-              <td><a class="btn_edit" href="#">Edit</a></td>
-              
-              
-            </tr>
+            
+            
+            <?php
+                
+                if(is_array($fetchData)){  
+                $sn=1;
+                foreach($fetchData as $data){
+
+                  
+              ?>
+                <tr>
+                
+                <td><?php echo $data['prod_ID']??''; ?></td>
+                <td><img id="display-image" src="./image/<?php echo $data['prod_img']; ?>"></td>
+                <td><?php echo $data['prod_name']?? '' ; ?></td>
+                <td><?php echo $data['prod_price']??''; ?></td>
+                <td><?php echo $data['prod_stock']??''; ?></td>
+                <td><a class="btn_edit" href="#">Edit</a></td>
+               
+              </tr>
+              <?php
+                $sn++;}}else{ ?>
+                <tr>
+                  <td colspan="8">
+              <?php echo $fetchData; ?>
+            </td>
+              <tr>
+              <?php
+              }?>
           </table>
         </div>
 
-        
+       
     </div>
 
   </section>

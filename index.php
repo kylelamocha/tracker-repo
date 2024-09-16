@@ -192,10 +192,10 @@ include("guest_table.php");
 
           <table> <!--class="order_tbl"-->
             <tr>
-              <th>Food</th>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
+              <th style="text-align:center;">Food</th>
+              <th style="text-align:center;">Name</th>
+              <th style="text-align:center;">Quantity</th>
+              <th style="text-align:center;">Price</th>
               <th></th>
             </tr>
             <tr>
