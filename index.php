@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php
-include("guest_table.php");
+include_once("guest_table.php");
 ?>
 
     <nav>
@@ -127,14 +127,10 @@ include("guest_table.php");
        </section>
 
       <section id='order'>
-        <!--<button class="add_guest">Add Guest</button>-->
        
         <div style="overflow-x:auto; width: 80%;">
           <h1 style="text-align: center; padding: 6px; font-weight: bold;">Our Menu</h1>
 
-          
-          <!--<button class="modal-button" href="#myModal2">
-          <i class='fas fa-cart-plus' style='font-size:30px; color: #000'></i></button>-->
            <!--button for modal 2-->
           <button class="modal-button" href="#myModal2">View Cart</button>
 
@@ -189,41 +185,46 @@ include("guest_table.php");
            
 
             <script src="modal.js"></script>
-
-          <table> <!--class="order_tbl"-->
+        
+          <table>
             <tr>
-              <th style="text-align:center;">Food</th>
-              <th style="text-align:center;">Name</th>
-              <th style="text-align:center;">Quantity</th>
+              <th style="text-align:center;">Food Image</th>
+              <th style="text-align:center;">Food Name</th> 
               <th style="text-align:center;">Price</th>
+              <th style="text-align:center;">Food Quantity Available</th>
               <th></th>
             </tr>
-            <tr>
-              <td><img src="https://i.ibb.co/LrpN56T/chiken.jpg" alt="chiken" border="0" width="200" 
-                height="150"></td>
-              <td>Chicken and Fries</td>
-              <td><input type="number" id="quantity" value="1" name="quantity" min="1" max="10"></td>
-              <td>200 PHP</td>
-              <td class="add_btn"><a href="" class="add_order">Add to Cart</a></td>
-              </tr>
-            </tr>
-            <tr>
-              <td><img src="https://i.ibb.co/8P6kgc1/burger.jpg" alt="burger" border="0" width="200" 
-                height="150"></td>
-              <td>Burger and Fries</td>
-              <td><input type="number" id="quantity" value="1" name="quantity" min="1" max="10"></td>
-              <td>200 PHP</td>
-              <td class="add_btn"><a href="" class="add_order">Add to Cart</a></td>
-            </tr>
-            <tr>
-              <td><img src="https://i.ibb.co/YQLjzsC/carbo.jpg" alt="carbo" border="0" width="200" 
-                height="150"></td>
-              <td>Carbonara</td>
-              <td><input type="number" id="quantity" value="1" name="quantity" min="1" max="10"></td>
-              <td>200 PHP</td>
-              <td class="add_btn"><a href="" class="add_order">Add to Cart</a></td>
-            </tr>
-          </table>
+
+            <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM products");
+            ?>
+            <?php
+                    if (mysqli_num_rows($result) > 0) {
+            ?>
+            <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                    <td><img id="display-image" src="./image/<?php echo $row['prod_img']; ?>"></td>
+                    <td><?php echo $row['prod_name']?? '' ; ?></td>
+                    <td><?php echo $row['prod_price']??''; ?></td>
+                    <td><?php echo $row['prod_stock']??''; ?></td>
+                    <td class="add_btn"><a href="" class="add_order">Add to Cart</a></td>
+                    </tr>
+                    <?php
+                    $i++;
+                    }
+                    ?>
+                    </table>
+                     <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+            
         
         </div>
       </section>
