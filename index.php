@@ -146,37 +146,47 @@ include_once("guest_table.php");
               <div class="modal-body">
               <table>
                   <tr>
-                    <th>Image Here</th>
-                    <th>Food Item</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Actions</th>
+                    <th style="text-align: center;">Food</th>
+                    <th style="text-align: center;">Price</th>
+                    <th style="text-align: center;">Total</th>
+                    <th style="text-align: center;">Actions</th>
                   </tr>
-                  <tr>
-                    <td>will insert in the future</td>
-                    <td>Burger</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td><i class="fa fa-times"></i></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Chicken</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td><i class="fa fa-times"></i></td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Ramen</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td><i class="fa fa-times"></i></td>
-                  </tr>
+                  <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM cart");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                   <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                    
+                    <td><?php echo $row['product_name']?? '' ; ?></td>
+                    <td><?php echo $row['product_price']??''; ?></td>
+                    <td><?php echo $row['product_price']??''; ?></td>
+                    <td><a href=""><i class="fa fa-times"></i></a></td>
+                                
+                    </tr>
+                    <?php
+                    $i++;
+                    }
+                    ?>
+                    </table>
+                     <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+          
+                 
                   
                 </table>
-                <h5 style="color:red;">Total: <span class="price text-success">89$</span></h5>
-                <button type="button" class="btn btn-success" style="background-color: #003366;">Checkout</button>
+                <!--<h5 style="color:red;">Total: <span class="price text-success"></span></h5>-->
+                <button type="button" class="btn btn-success" style="background-color: #003366; margin:5px;">Checkout</button>
               </div>
               
             </div>
@@ -211,7 +221,7 @@ include_once("guest_table.php");
                     <td><?php echo $row['prod_name']?? '' ; ?></td>
                     <td><?php echo $row['prod_price']??''; ?></td>
                     <td><?php echo $row['prod_stock']??''; ?></td>
-                    <td class="add_btn"><a href="" class="add_order">Add to Cart</a></td>
+                    <td class="add_btn"><a href="add_cart.php?id=<?php echo $row['prod_ID']; ?>" class="add_order">Add to Cart</a></td>
                     </tr>
                     <?php
                     $i++;

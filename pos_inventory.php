@@ -24,9 +24,6 @@
    </head>
 <body>
 
-<?php
-include("prod_table.php");
-?>
   <div class="sidebar">
     <div class="logo-details">
         <i class='bx bx-signal-4'></i>
@@ -194,37 +191,47 @@ include("prod_table.php");
               <th>Price</th>
               <th>Stock</th>
               <th>Action</th>
+            
               
             </tr>
-            
-            
-            <?php
-                
-                if(is_array($fetchData)){  
-                $sn=1;
-                foreach($fetchData as $data){
 
-                  
-              ?>
-                <tr>
-                
-                <td><?php echo $data['prod_ID']??''; ?></td>
-                <td><img id="display-image" src="./image/<?php echo $data['prod_img']; ?>"></td>
-                <td><?php echo $data['prod_name']?? '' ; ?></td>
-                <td><?php echo $data['prod_price']??''; ?></td>
-                <td><?php echo $data['prod_stock']??''; ?></td>
-                <td><a class="btn_edit" href="#">Edit</a></td>
-               
-              </tr>
-              <?php
-                $sn++;}}else{ ?>
-                <tr>
-                  <td colspan="8">
-              <?php echo $fetchData; ?>
-            </td>
-              <tr>
-              <?php
-              }?>
+            <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM products");
+            ?>
+            <?php
+                    if (mysqli_num_rows($result) > 0) {
+            ?>
+            <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <tr>
+                    <td><?php echo $row['prod_ID']?? '' ; ?></td>
+                    <td><img id="display-image" src="./image/<?php echo $row['prod_img']; ?>"></td>
+                    <td><?php echo $row['prod_name']?? '' ; ?></td>
+                    <td><?php echo $row['prod_price']??''; ?></td>
+                    <td><?php echo $row['prod_stock']??''; ?></td>
+                    <td>
+                    <a class="btn_edit" href="edit.php?id=<?php echo $row['prod_ID']; ?>">Edit</a>
+                    <a class="btn_edit" href="delete.php?id=<?php echo $row['prod_ID']?>" onclick="return confirm('Are you sure?')">X</a>
+                    </td>
+                    </tr>
+                    <?php
+                    $i++;
+                    }
+                    ?>
+                    </table>
+                     <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+            
+            
+            
+     
           </table>
         </div>
 
