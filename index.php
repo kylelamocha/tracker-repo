@@ -75,13 +75,12 @@
             
 
           <table>
-          <?php echo $deleteMsg??''; ?>
           
             <tr>
            
               <th>Guest No.</th>
               <th>Guest Name</th>
-              <th>Time In</th>
+              <th>Guest Date and Time In</th>
               <th>Guest Status</th>
               <th>Rate</th>
               <th>Action</th>
@@ -91,8 +90,8 @@
 
               <?php
                     include_once 'db.php';
-                    //$time=$_GET['id'];
                     $result = mysqli_query($database,"SELECT * FROM guest_tbl");
+                   
                     
                   ?>
                   <?php
@@ -100,18 +99,21 @@
                   ?>
                    <?php
                     $i=0;
-                    while($row = mysqli_fetch_array($result)) {
-                      $dateString = '08/04/2010 22:15:00';
+                    while($row = mysqli_fetch_array($result)) { 
+                      $dateString = $row['guest_timein'];
                       $dateObject = new DateTime($dateString);
                       //echo $dateObject->format('h:i A');
+
                     ?>
                     <tr>
                     
                     <td><?php echo $row['g_id']?? '' ; ?></td>
                     <td><?php echo $row['guest_name']??''; ?></td>
-                    <td><?php echo $dateObject->format('h:i A')?></td>
+                    <td><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
                     <td><?php echo $row['guest_status']??''; ?></td>
                     <td><?php echo $row['guest_rate']??''; ?></td>
+                    <td><a href="#" style="text-decoration: none; font-size:15px;">Time-out</a></td>
+
 
                     
                                 
