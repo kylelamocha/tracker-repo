@@ -14,9 +14,7 @@
 
 </head>
 <body>
-<?php
-include_once("guest_table.php");
-?>
+
 
     <nav>
         <a href="#home"><i class="fa fa-home"></i></a>
@@ -91,33 +89,44 @@ include_once("guest_table.php");
               <!--<th>Billing</th> -->
             </tr>
 
-            <?php
-                
-                if(is_array($fetchData)){      
-                $sn=1;
-                foreach($fetchData as $data){
+              <?php
+                    include_once 'db.php';
+                    //$time=$_GET['id'];
+                    $result = mysqli_query($database,"SELECT * FROM guest_tbl");
+                    
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                   <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                      $dateString = '08/04/2010 22:15:00';
+                      $dateObject = new DateTime($dateString);
+                      //echo $dateObject->format('h:i A');
+                    ?>
+                    <tr>
+                    
+                    <td><?php echo $row['g_id']?? '' ; ?></td>
+                    <td><?php echo $row['guest_name']??''; ?></td>
+                    <td><?php echo $dateObject->format('h:i A')?></td>
+                    <td><?php echo $row['guest_status']??''; ?></td>
+                    <td><?php echo $row['guest_rate']??''; ?></td>
 
-                  
-              ?>
-                <tr>
-                
-                <td><?php echo $data['g_id']??''; ?></td>
-                <td><?php echo $data['guest_name']??''; ?></td>
-                <td><?php echo $data['guest_timein']?? '' ; ?></td>
-                <td><?php echo $data['guest_status']??''; ?></td>
-                <td><?php echo $data['guest_rate']??''; ?></td>
-                <td><a href="#" style="text-decoration: none; font-size:15px;">Time-out</a></td>
-               
-              </tr>
-              <?php
-                $sn++;}}else{ ?>
-                <tr>
-                  <td colspan="8">
-              <?php echo $fetchData; ?>
-            </td>
-              <tr>
-              <?php
-              }?>
+                    
+                                
+                    </tr>
+                    <?php
+                    $i++;
+                    }
+                    ?>
+                    </table>
+                     <?php
+                    }
+                    else{
+                        echo "No guest found";
+                    }
+                    ?>
              
               <!--<td class="bill_btn"><a href="" class="proceed_bill" style="text-decoration: none;">Proceed to Billing</a></td>-->
             
@@ -167,7 +176,7 @@ include_once("guest_table.php");
                     <td><?php echo $row['product_name']?? '' ; ?></td>
                     <td><?php echo $row['product_price']??''; ?></td>
                     <td><?php echo $row['product_price']??''; ?></td>
-                    <td><a href=""><i class="fa fa-times"></i></a></td>
+                    <td><a href="delete_cart.php?id=<?php echo $row['cart_ID']?>" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i></a></td>
                                 
                     </tr>
                     <?php
@@ -178,7 +187,7 @@ include_once("guest_table.php");
                      <?php
                     }
                     else{
-                        echo "No result found";
+                        echo "No food item found";
                     }
                     ?>
           
