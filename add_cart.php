@@ -9,6 +9,8 @@
                    
     mysqli_query($database, "INSERT INTO `cart` VALUES('', '$id', '$prodName', '$prodPrice')") or die(mysqli_error($database));
 
+    
+
 	header('location:index.php');
 
 ?>

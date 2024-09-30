@@ -159,6 +159,7 @@
                   <tr>
                     <th style="text-align: center;">Food</th>
                     <th style="text-align: center;">Price</th>
+                    <th style="text-align: center;">Quantity</th>
                     <th style="text-align: center;">Total</th>
                     <th style="text-align: center;">Actions</th>
                   </tr>
@@ -177,6 +178,7 @@
                     
                     <td><?php echo $row['product_name']?? '' ; ?></td>
                     <td><?php echo $row['product_price']??''; ?></td>
+                    <td><input type= "number" name="quantity"></td>
                     <td><?php echo $row['product_price']??''; ?></td>
                     <td><a href="delete_cart.php?id=<?php echo $row['cart_ID']?>" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i></a></td>
                                 
