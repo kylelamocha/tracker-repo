@@ -51,6 +51,33 @@ input[type=submit]:hover {
                 <label>Product name:</label><input type="text" value="<?php echo $row['prod_name']; ?>" name="prod_name">
                 <label>Product price:</label><input type="text" value="<?php echo $row['prod_price']; ?>" name="prod_price">
                 <label>Product stock:</label><input type="text" value="<?php echo $row['prod_stock']; ?>" name="prod_stock">
+                <label>Product Category:</label>
+                <select name="category_id" class="custom-select browser-default">
+                  <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM category_list");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                  <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+									<option value="<?php echo $row['ID'] ?>"><?php echo $row['name'] ?></option>
+									 <?php
+                    $i++;
+                    }
+                    ?>
+                     <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+								</select>
+
+                
                 <input type="submit" name="submit" style="font-weight: bold;">
                 <a href="pos_inventory.php">Back</a>
         </form>

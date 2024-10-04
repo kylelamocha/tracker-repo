@@ -42,6 +42,18 @@
             <span class="links_name">Products</span>
           </a>
         </li>
+        <li>
+          <a href="#" onclick="show('page3');">
+          <i class='bx bxs-objects-vertical-bottom'></i>
+          <span class="links_name">Category List</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" onclick="show('page4');">
+          <i class='bx bxs-user-circle'></i>
+          <span class="links_name">Users</span>
+          </a>
+        </li>
         <li class="log_out">
           <a href="login.php">
             <i class='bx bx-log-out'></i>
@@ -166,18 +178,45 @@
               <input type="text" id="prod_price" name="prod_price" required><br><br>
 
               <label for="prod_stock">Product Stock:</label>
-              <input type="number" id="prod_stock" name="prod_stock" required><br><br> 
+              <input type="number" id="prod_stock" name="prod_stock" min="1" required><br><br>
+              
+              <label for="prod_category">Product Category:</label>
+              <select name="category_id" class="custom-select browser-default"><br><br>
+                  <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM category_list");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                  <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                    ?>
+									<option value="<?php echo $row['ID'] ?>"><?php echo $row['name'] ?></option>
+									 <?php
+                    $i++;
+                    }
+                    ?>
+                     <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+								</select>
 
-              <button type="submit" class="trigger" value="Submit">Add Product</button>
+                <br><br><button type="submit" class="trigger" value="Submit">Add Product</button>
               
             </form>
             </div>
           
           </div>
           </div>
+      
 
           
-          <script src="modal.js"></script>
+         
 
         <div style="overflow-x:auto;">
 
@@ -186,6 +225,7 @@
           <table>
             <tr>
               <th>Product No</th>
+              <th>Product Category</th>
               <th>Product Image</th>
               <th>Product Name</th>
               <th>Price</th>
@@ -197,7 +237,7 @@
 
             <?php
                     include_once 'db.php';
-                    $result = mysqli_query($database,"SELECT * FROM products");
+                    $result = mysqli_query($database,"SELECT p.*, c.name as cat FROM products p inner join category_list c on c.id = p.category_id order by prod_ID asc");
             ?>
             <?php
                     if (mysqli_num_rows($result) > 0) {
@@ -208,13 +248,14 @@
                     ?>
                     <tr>
                     <td><?php echo $row['prod_ID']?? '' ; ?></td>
+                    <td><?php echo $row['cat'] ?></td>
                     <td><img id="display-image" src="./image/<?php echo $row['prod_img']; ?>"></td>
                     <td><?php echo $row['prod_name']?? '' ; ?></td>
                     <td><?php echo $row['prod_price']??''; ?></td>
                     <td><?php echo $row['prod_stock']??''; ?></td>
                     <td>
-                    <a class="btn_edit" href="edit.php?id=<?php echo $row['prod_ID']; ?>">Edit</a>
-                    <a class="btn_edit" href="delete.php?id=<?php echo $row['prod_ID']?>" onclick="return confirm('Are you sure?')">X</a>
+                    <a class="btn_edit" href="edit.php?id=<?php echo $row['prod_ID']; ?>"><i class='bx bx-edit'></i></a>
+                    <a class="btn_edit" href="delete.php?id=<?php echo $row['prod_ID']?>" onclick="return confirm('Are you sure?')"><i class='bx bxs-comment-x'></i></a>
                     </td>
                     </tr>
                     <?php
@@ -234,12 +275,134 @@
      
           </table>
         </div>
+        </div>
+
+        <div class="home-content" id="page3" style="display:none">
+
+        <button class="modal-button" href="#myModal4">Add Category</button>
+
+        <!-- The Modal -->
+        <div id="myModal4" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close">×</span>
+              <h2>Add New Category</h2>
+            </div>
+
+            <div class="modal-body">
+            <form id="addCategory" method="post" action="add_category.php" enctype="multipart/form-data">
+              
+              <label for="category_id">Category ID:</label>
+              <input type="text" id="ID" name="ID" required><br><br>
+
+              <label for="category_name">Category Name:</label>
+              <input type="text" id="name" name="name" required><br><br>
+
+
+              <button type="submit" class="trigger" value="Submit">Add Category</button>
+              
+            </form>
+            </div>
+          
+          </div>
+        </div>
+
+        <table>
+            <tr>
+              <th>Category No</th>
+              <th>Category Name</th>
+              <th>Action</th>
+              
+            </tr>
+            <tr>
+
+                  <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM category_list");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                  <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                  ?>
+
+              <td><?php echo $row['ID']?? '' ; ?></td>
+              <td><?php echo $row['name']?? '' ; ?></td>
+              <td><a class="btn_edit" href="edit_category.php?id=<?php echo $row['ID']; ?>"><i class='bx bx-edit'></i></a></td>
+
+
+            </tr>
+            <?php
+               $i++;
+               }
+            ?>
+        </table>
+        <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+        </div>
+
+        <div class="home-content" id="page4" style="display:none">
+        
+        <table>
+            <tr>
+              <th>User No</th>
+              <th>User Name</th>
+              <th>Password</th>
+              <th>Action</th>
+              
+            </tr>
+            <tr>
+
+                  <?php
+                    include_once 'db.php';
+                    $result = mysqli_query($database,"SELECT * FROM users");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                  <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                  ?>
+
+              <td><?php echo $row['id']?? '' ; ?></td>
+              <td><?php echo $row['username']?? '' ; ?></td>
+              <td><?php echo $row['password']?? '' ; ?></td>
+              <td><a class="btn_edit" href="#" ><i class='bx bx-edit'></i></a></td>
+
+
+
+            </tr>
+            <?php
+               $i++;
+               }
+            ?>
+        </table>
+        <?php
+                    }
+                    else{
+                        echo "No result found";
+                    }
+                    ?>
+        </div>
+        
+
+
 
        
-    </div>
+    
 
   </section>
 
+  <script src="modal.js"></script>
   <script src="pos.js">
   </script>
   <script src="form_prod.js">

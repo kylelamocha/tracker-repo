@@ -9,10 +9,11 @@ $folder = "./image/" . $filename; //img
 $prod_name = $_REQUEST['prod_name'];
 $prod_price =  $_REQUEST['prod_price'];
 $prod_stock =  $_REQUEST['prod_stock'];
+$prodCategory= $_POST['category_id'];
 
 
 // Performing insert query execution
-$sql = "INSERT INTO products (prod_ID, prod_img, prod_name, prod_price, prod_stock) VALUES (NULL, '$filename','$prod_name', '$prod_price','$prod_stock')";
+$sql = "INSERT INTO products (prod_ID, prod_img, prod_name, prod_price, prod_stock, category_id) VALUES (NULL, '$filename','$prod_name', '$prod_price','$prod_stock','$prodCategory')";
 $result=mysqli_query($database,$sql);
 
 if (move_uploaded_file($tempname, $folder)) {

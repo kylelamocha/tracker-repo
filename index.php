@@ -88,11 +88,9 @@
               <!--<th>Billing</th> -->
             </tr>
 
-              <?php
+                 <?php
                     include_once 'db.php';
                     $result = mysqli_query($database,"SELECT * FROM guest_tbl");
-                   
-                    
                   ?>
                   <?php
                     if (mysqli_num_rows($result) > 0) {
