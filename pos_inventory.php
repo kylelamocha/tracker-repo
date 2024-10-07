@@ -313,6 +313,7 @@
             <tr>
               <th>Category No</th>
               <th>Category Name</th>
+             
               <th>Action</th>
               
             </tr>
@@ -320,7 +321,7 @@
 
                   <?php
                     include_once 'db.php';
-                    $result = mysqli_query($database,"SELECT * FROM category_list");
+                    $result = mysqli_query($database,"SELECT * FROM category_list" );
                   ?>
                   <?php
                     if (mysqli_num_rows($result) > 0) {
@@ -332,6 +333,7 @@
 
               <td><?php echo $row['ID']?? '' ; ?></td>
               <td><?php echo $row['name']?? '' ; ?></td>
+              
               <td><a class="btn_edit" href="edit_category.php?id=<?php echo $row['ID']; ?>"><i class='bx bx-edit'></i></a></td>
 
 

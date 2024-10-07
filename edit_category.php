@@ -42,6 +42,8 @@ input[type=submit]:hover {
   background-color: #66b0ff;
 }
 
+
+
 </style>
 <title>Edit Category</title>
 </head>
@@ -49,8 +51,8 @@ input[type=submit]:hover {
         <h2>Edit Category</h2>
         <form method="POST" action="update_category.php?id=<?php echo $id; ?>">
                 <label>Category ID:</label><input type="text" value="<?php echo $row['ID']; ?>" name="ID">
-                <label>Category Name:</label><input type="text" value="<?php echo $row['name']; ?>" name="name">
- 
+                <label>Category Name:</label><input type="text" value="<?php echo $row['name']; ?>" name="name"><br><br>
+                
                 <input type="submit" name="submit" style="font-weight: bold;">
                 <a href="pos_inventory.php">Back</a>
         </form>
