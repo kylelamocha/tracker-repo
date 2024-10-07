@@ -1,6 +1,6 @@
 <?php 
 session_start(); 
-include "./database/db.php";
+include "db.php";
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
 
@@ -39,7 +39,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 					$_SESSION["username"]=$username;
 					
-					header("location:./admin/admin.php");
+					header("location: admin.php");
 				}			
 			else{
 				header("Location: login.php?error=Incorrect Username or password");

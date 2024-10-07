@@ -1,0 +1,315 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap");
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+  
+  :root {
+  --primary-color: #D96AA7;
+  --secondary-color: #422C73;
+  --complimentary-color: #88BFB5;
+  --contrast-color: #F2E527;
+  --light-color: #D2A9D9;
+  }
+  
+  .container {
+    background: #191919;
+    min-height: 100vh;
+    padding: 0 30px;
+    font-family: Montserrat, sans-serif;
+  }
+  
+  nav a {
+      font-size: 40px;
+      color: #fff;
+      text-decoration: none;
+      padding: 20px;
+      text-align: center;
+  }
+  
+  nav {
+      position: fixed;
+      left: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      height: 100vh;
+      background: #003366;
+  }
+  
+  section {
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 0;
+      opacity: 0;
+      transition: all ease-in .5s;
+      display: flex;
+      justify-content: center;
+  } 
+  
+  section h1 {
+      color: #000;
+      font-size: 30px;
+      opacity: 0;
+  }
+  
+  /* Styles applied on trigger */
+  section:target {
+      opacity: 1;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+  }
+  
+  section:target h1 {
+      opacity: 0;
+      animation: 2s fadeIn forwards .5s;
+  }
+  
+  #home {
+    background: white;
+  }
+  #order {
+    background: white;
+  }
+  
+  #billing {
+  
+  background-color: white;
+
+  }
+  
+ 
+
+.container mb-5 mt-3{
+  background-color: white;
+  
+}
+  
+  @keyframes fadeIn {
+      100% { opacity:1 }
+  }
+
+  /*btn*/
+.add_guest {
+    background-color: #003366; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  .add_guest:hover{
+    background-color: #88BFB5;
+  }
+/*table*/
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th{
+  text-align: center;
+  padding: 8px;
+}
+
+td{
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+/*.order_tbl{
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  margin: 15px;
+}*/
+.bill_btn{
+  text-align: center; 
+	height: 80px;
+	padding-top: 10px;
+	line-height: 18px;
+}
+.proceed_bill{
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#fbfbfb;
+	-webkit-border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-right-radius:8px;
+	-webkit-border-bottom-right-radius:8px;
+	-moz-border-radius-bottomright:8px;
+	border-bottom-right-radius:8px;
+	-webkit-border-bottom-left-radius:8px;
+	-moz-border-radius-bottomleft:8px;
+	border-bottom-left-radius:8px;
+	text-indent:0;
+	border:2px solid #dcdcdc;
+	display:block;
+
+}
+/*menu*/
+/*menu section button*/
+.add_btn{
+  text-align: center; 
+	height: 80px;
+	padding-top: 10px;
+	line-height: 22px;
+}
+.add_order{
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background-color:#fbfbfb;
+	-webkit-border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+	border-top-left-radius:8px;
+	-webkit-border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-right-radius:8px;
+	-webkit-border-bottom-right-radius:8px;
+	-moz-border-radius-bottomright:8px;
+	border-bottom-right-radius:8px;
+	-webkit-border-bottom-left-radius:8px;
+	-moz-border-radius-bottomleft:8px;
+	border-bottom-left-radius:8px;
+	text-indent:0;
+	border:2px solid #dcdcdc;
+	display:block;
+  text-decoration: none;
+}
+/*add to cart button*/
+.cart :hover{
+  background-color: #88BFB5;
+}
+/*cart btn*/
+.trigger{
+  background-color: #003366;
+  border: none;
+  color: white;
+  padding: 10px 8px;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* The Modal*/
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 600px; 
+  height: auto; 
+  max-height: 80vh; 
+  overflow-y: auto;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  background-color: #003366;
+  color: white;
+}
+
+
+.modal-body {
+  padding: 2px 16px;
+}
+
+.modal-button {
+  background-color: #003366;
+  margin: 10px;
+  padding: 10px;
+  font-size: var(--share-link-span);
+  text-transform: capitalize;
+  border-radius: 0.7em;
+  color: #eee;
+  letter-spacing: 0.25px;
+}
+.modal-button:hover {
+  background-color: #888;
+  color: black;
+}
+
+.logout{
+  float: right;
+  padding: 18px 10px;
+  text-decoration: none;
+}
+
+#display-image{
+  width: 100%;
+  padding: 5px;
+}
+img{
+  width: 250px;
+  height: 250px;
+}
+
