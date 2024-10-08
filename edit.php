@@ -79,7 +79,7 @@ input[type=submit]:hover {
 
                 
                 <input type="submit" name="submit" style="font-weight: bold;" >
-                <a href="admin.php">Back</a>
+                <a href="admin.php#products">Back</a>
         </form>
 </body>
 </html>

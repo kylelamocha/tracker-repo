@@ -31,7 +31,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 					$_SESSION["username"]=$username;
 
-					header("location:index.php");
+					header("location:index.php#home");
 				}
 
 				elseif($row["id"]=="1")

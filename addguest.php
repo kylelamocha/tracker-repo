@@ -16,7 +16,7 @@ $sql = "INSERT INTO guest_tbl  VALUES (NULL, '$guest_name',
 if(mysqli_query($database, $sql)){
     $alert = "Guest added successfully!";
     echo "<script type='text/javascript'>alert('$alert');</script>";
-    header("Location: index.php");
+    header("Location: index.php#home");
 } else{
     echo "ERROR: Hush! Sorry $sql. " 
         . mysqli_error($database);
