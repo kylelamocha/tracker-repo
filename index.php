@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
-    <title>
-        Main Page
-    </title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <title>AORBTS</title>
 </head>
 <body>
 
+<div class="container">
+  <h2></h2>
+  <br>
+  <!-- Nav pills -->
+  <ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#home"><b>Home</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#guest">Guest</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#menu">Menu</a>
+    </li>
+  </ul>
 
-    <nav>
-        <a href="#home"><i class="fa fa-home"></i></a>
-        <a href="#order"><i class="fas fa-hamburger"></i></a>
-        <!--<a href="#billing"><i class="fas fa-money-bill"></i></a>-->
-        <!--<a href="#fourth"><i class="far fa-address-card"></i></a>-->
-    </nav>
-       
-     <div class= 'container'> 
-       <section id= 'home'>
-
-         <!--<h1>Home</h1>-->
-
-         <div style="overflow-x:auto;">
-          
-          <!--button for modal 1-->
-          <!--<button class="add_guest" href="#myModal1">Add Guest</button>-->
-          <button class="modal-button" href="#myModal1">Add New Guest</button>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <h3>HOME</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </div>
+    <div id="guest" class="container tab-pane fade"><br>
+      <h3>Guest Section</h3>
+      <button class="modal-button" href="#myModal1">Add New Guest</button>
           <a href="login.php" class="logout">Logout</a>
 
            <!-- The Modal -->
@@ -131,124 +135,15 @@
             
           </table>
         </div>
-       </section>
+    </div>
+    <div id="menu" class="container tab-pane fade"><br>
+      <h3>Menu</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+</div>
 
-      <section id='order'>
-       
-        <div style="overflow-x:auto; width: 80%;">
-          <h1 style="text-align: center; padding: 6px; font-weight: bold;">Our Menu</h1>
-
-           <!--button for modal 2-->
-          <button class="modal-button" href="#myModal2">View Cart</button>
-
-          <!-- The Modal -->
-            <div id="myModal2" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-              <div class="modal-header">
-                <span class="close">×</span>
-                <h2>View Cart</h2>
-              </div>
-              <div class="modal-body">
-              <table>
-                  <tr>
-                    <th style="text-align: center;">Food</th>
-                    <th style="text-align: center;">Price</th>
-                    <th style="text-align: center;">Quantity</th>
-                    <th style="text-align: center;">Total</th>
-                    <th style="text-align: center;">Actions</th>
-                  </tr>
-                  <?php
-                    include_once 'db.php';
-                    $result = mysqli_query($database,"SELECT * FROM cart");
-                  ?>
-                  <?php
-                    if (mysqli_num_rows($result) > 0) {
-                  ?>
-                   <?php
-                    $i=0;
-                    while($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tr>
-                    
-                    <td><?php echo $row['product_name']?? '' ; ?></td>
-                    <td><?php echo $row['product_price']??''; ?></td>
-                    <td><input type= "number" name="quantity"></td>
-                    <td><?php echo $row['product_price']??''; ?></td>
-                    <td><a href="delete_cart.php?id=<?php echo $row['cart_ID']?>" onclick="return confirm('Are you sure?')"><i class="fa fa-times"></i></a></td>
-                                
-                    </tr>
-                    <?php
-                    $i++;
-                    }
-                    ?>
-                    </table>
-                     <?php
-                    }
-                    else{
-                        echo "No food item found";
-                    }
-                    ?>
-          
-                 
-                  
-                </table>
-                <!--<h5 style="color:red;">Total: <span class="price text-success"></span></h5>-->
-                <button type="button" class="btn btn-success" style="background-color: #003366; margin:5px;">Checkout</button>
-              </div>
-              
-            </div>
-
-            </div>
-           
-
-            <script src="./js/modal.js"></script>
-        
-          <table>
-            <tr>
-              <th style="text-align:center;">Food Image</th>
-              <th style="text-align:center;">Food Name</th> 
-              <th style="text-align:center;">Price</th>
-              <th style="text-align:center;">Food Quantity Available</th>
-              <th></th>
-            </tr>
-
-            <?php
-                    include_once 'db.php';
-                    $result = mysqli_query($database,"SELECT * FROM products");
-            ?>
-            <?php
-                    if (mysqli_num_rows($result) > 0) {
-            ?>
-            <?php
-                    $i=0;
-                    while($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tr>
-                    <td><img id="display-image" src="./image/<?php echo $row['prod_img']; ?>"></td>
-                    <td><?php echo $row['prod_name']?? '' ; ?></td>
-                    <td><?php echo $row['prod_price']??''; ?></td>
-                    <td><?php echo $row['prod_stock']??''; ?></td>
-                    <td class="add_btn"><a href="add_cart.php?id=<?php echo $row['prod_ID']; ?>" class="add_order">Add to Cart</a></td>
-                    </tr>
-                    <?php
-                    $i++;
-                    }
-                    ?>
-                    </table>
-                     <?php
-                    }
-                    else{
-                        echo "No result found";
-                    }
-                    ?>
-            
-        
-        </div>
-      </section>
-       
-    
-     </div>
+<script src="./js/modal.js"></script>
+  
 </body>
 </html>
