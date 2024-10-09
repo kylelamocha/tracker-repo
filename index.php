@@ -29,8 +29,6 @@
          <!--<h1>Home</h1>-->
 
          <div style="overflow-x:auto;">
-
-          <!--<h1>Home</h1>-->
           
           <!--button for modal 1-->
           <!--<button class="add_guest" href="#myModal1">Add Guest</button>-->
