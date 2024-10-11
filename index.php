@@ -57,7 +57,7 @@
             <label for="guestName">Guest Name:</label>
             <input type="text" id="guest_name" name="guest_name" required><br><br>
           
-          <label for="guest_timein">Enter guest time-in:</label>
+          <label for="guest_timein">Guest Date and Time In:</label>
           <input type="datetime-local" id="guest_timein" name="guest_timein" required><br><br>
 
             <label for="guest_status">Guest Status:</label>
@@ -69,7 +69,7 @@
             <label for="guest_rate">Rate (by guest's status):</label>
             <input type="text" id="guest_rate" name="guest_rate" min="0" required><br><br>
 
-            <button type="submit" class="trigger" value="Submit">Add Guest</button>
+            <button type="submit" class="btn" value="Submit">Add Guest</button>
             
           </form>
           </div>
@@ -87,7 +87,9 @@
           <th scope="col">Guest Date and Time In</th>
           <th scope="col">Guest Status</th>
           <th scope="col">Rate</th>
+          <th scope="col">Order  (Optional)</th>
           <th scope="col">Action</th>
+          <th scope="col">Time Out</th>
         </tr>
         </thead>
         <tbody>
@@ -112,7 +114,12 @@
           <td data-label="Guest Date and Time In"><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
           <td data-label="Guest Status"><?php echo $row['guest_status']??''; ?></td>
           <td data-label="Rate"><?php echo $row['guest_rate']??''; ?></td>
-          <td>X</td>
+          <td data-label="Order"><a href="#" class="btn_guest"><i class="fa fa-cutlery"></i></a></td>
+          <td data-label="Edit/Delete">
+            <a href="edit_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-pencil-square-o"></i></a>
+            <a href="delete_guest.php?id=<?php echo $row['g_id']?>" onclick="return confirm('Are you sure?')" class="btn_guest"><i class="fa fa-trash"></i></a>
+          </td>
+          <td data-label="TimeOut"><a href="#" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
         </tr>
         <?php
             $i++;

@@ -265,7 +265,7 @@ table th {
     font-size: 2rem;
     border-radius: 0.4rem;
     padding: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background-color: #B8B8B8;
     color: black;
     outline: 0;
@@ -280,9 +280,15 @@ table th {
 .btn:active {
     transform: scale(0.9);
 }
+.btn_guest{
+  color: #333;
+}
+.btn_guest:active{
+  background-color: #F0F0F0;
+}
 
 label {
-    margin: 18px;
+    margin: 15px;
     font-size: 18px;
 }
 input{

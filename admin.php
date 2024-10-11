@@ -86,8 +86,8 @@
                 $i=0;
                 while($row = mysqli_fetch_array($result)) {
                 ?>
-                                <option value="<?php echo $row['ID'] ?>"><?php echo $row['name'] ?></option>
-                                <?php
+                  <option value="<?php echo $row['ID'] ?>"><?php echo $row['name'] ?></option>
+                  <?php
                 $i++;
                 }
                 ?>
@@ -97,7 +97,7 @@
                     echo "No result found";
                 }
                 ?>
-                            </select>
+                </select>
 
             <br><br><button type="submit" class="trigger" value="Submit">Add Product</button>
             

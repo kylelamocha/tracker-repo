@@ -1,7 +1,7 @@
 <?php
         include('db.php');
         $id=$_GET['id'];
-        $query=mysqli_query($database,"select * from `users` where id='$id'");
+        $query=mysqli_query($database,"select * from `guest_tbl` where g_id='$id'");
         $row=mysqli_fetch_array($query);
 ?>
 <!DOCTYPE html>
@@ -45,16 +45,20 @@ input[type=submit]:hover {
 
 
 </style>
-<title>Edit User</title>
+<title>Edit Guest Information</title>
 </head>
 <body>
-        <h2>Edit User</h2>
-        <form method="POST" action="update_user.php?id=<?php echo $id; ?>">
-                <label>Change User Name:</label><input type="text" value="<?php echo $row['username']; ?>" name="username">
-                <label>Change Password:</label><input type="text" value="<?php echo $row['password']; ?>" name="password"><br><br>
-                
+        <h2>Edit Guest</h2>
+        <form method="POST" action="update_guest.php?id=<?php echo $id; ?>">
+                <label>Guest Name:</label><input type="text" value="<?php echo $row['guest_name']; ?>" name="guest_name">
+                <label>Guest Status:</label>
+                <select id="guest_status" name="guest_status">
+                <option value="Regular">Regular</option>
+                <option value="Student">Student</option>
+                </select><br><br>
+                <label>Guest Rate:</label><input type="text" value="<?php echo $row['guest_rate']; ?>" name="guest_rate">
                 <input type="submit" name="submit" style="font-weight: bold;">
-                <a href="admin.php#users">Back</a>
+                <a href="index.php#guest">Back</a>
         </form>
 </body>
 </html>
