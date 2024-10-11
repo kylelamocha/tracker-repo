@@ -114,12 +114,12 @@
           <td data-label="Guest Date and Time In"><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
           <td data-label="Guest Status"><?php echo $row['guest_status']??''; ?></td>
           <td data-label="Rate"><?php echo $row['guest_rate']??''; ?></td>
-          <td data-label="Order"><a href="#" class="btn_guest"><i class="fa fa-cutlery"></i></a></td>
+          <td data-label="Order"><a href="order_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-cutlery"></i></a></td>
           <td data-label="Edit/Delete">
             <a href="edit_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-pencil-square-o"></i></a>
             <a href="delete_guest.php?id=<?php echo $row['g_id']?>" onclick="return confirm('Are you sure?')" class="btn_guest"><i class="fa fa-trash"></i></a>
           </td>
-          <td data-label="TimeOut"><a href="#" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
+          <td data-label="TimeOut"><a href="bill_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
         </tr>
         <?php
             $i++;
