@@ -3,6 +3,8 @@
         $id=$_GET['id'];
         $query=mysqli_query($database,"select * from `guest_tbl` where g_id='$id'");
         $row=mysqli_fetch_array($query);
+        $dateString = $row['guest_timein'];
+        $dateObject = new DateTime($dateString);
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,15 +45,20 @@ input[type=submit]:hover {
 }
 
 </style>
-<title>Billing Section</title>
+<title>Time Out Section</title>
 </head>
 <body>
-        <h2>Billing Form</h2>
+        <h2>Time Out Form</h2>
+        <h3 style="font-weight: normal; font-size: 15px;">Please check if the details are correct:</h3>
         <form method="POST" action="bill.php?id=<?php echo $id; ?>">
-            
-                
-                <input type="submit" name="submit" style="font-weight: bold;" >
-                <a href="index.php#guest">Back</a>
+          <label>Guest Name:</label><input type="text" value="<?php echo $row['guest_name']; ?>" name="guest_name" readonly>
+          <label>Guest Time In:</label><input type="text" value="<?php echo $dateObject->format('h:i A'); ?>" name="guest_timein" readonly>  
+          <label>Guest Status:</label><input type="text" value="<?php echo $row['guest_status']; ?>" name="guest_status" readonly> 
+          <label>Guest Rate:</label><input type="text" value="<?php echo $row['guest_rate']; ?>" name="guest_rate" readonly>
+          <label>Guest Time Out:</label><input type="datetime-local" id="guest_timeout" name="guest_timeout" required><br>
+          <label>Additional Fee:</label><input type="text" name="guest_add" >    
+          <input type="submit" name="submit" style="font-weight: bold;" >
+          <a href="index.php#guest">Back</a>
         </form>
 </body>
 </html>
