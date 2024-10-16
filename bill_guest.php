@@ -5,6 +5,7 @@
         $row=mysqli_fetch_array($query);
         $dateString = $row['guest_timein'];
         $dateObject = new DateTime($dateString);
+     
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,12 +52,15 @@ input[type=submit]:hover {
         <h2>Time Out Form</h2>
         <h3 style="font-weight: normal; font-size: 15px;">Please check if the details are correct:</h3>
         <form method="POST" action="bill.php?id=<?php echo $id; ?>">
+          <label>Guest ID:</label><input type="text" value="<?php echo $row['g_id']; ?>" name="g_id" readonly>
           <label>Guest Name:</label><input type="text" value="<?php echo $row['guest_name']; ?>" name="guest_name" readonly>
-          <label>Guest Time In:</label><input type="text" value="<?php echo $dateObject->format('h:i A'); ?>" name="guest_timein" readonly>  
+          <label>Guest Time In:</label><input type="text" value="<?php echo $row['guest_timein']; ?>" name="guest_timein" readonly>  
           <label>Guest Status:</label><input type="text" value="<?php echo $row['guest_status']; ?>" name="guest_status" readonly> 
           <label>Guest Rate:</label><input type="text" value="<?php echo $row['guest_rate']; ?>" name="guest_rate" readonly>
           <label>Guest Time Out:</label><input type="datetime-local" id="guest_timeout" name="guest_timeout" required><br>
-          <label>Additional Fee:</label><input type="text" name="guest_add" >    
+          <label>Additional Fee (Optional):</label><input type="text" name="add_fee" >  
+          <!--<label>Total Hours:</label><input type="text" name="guest_hrs" readonly>   
+          <label>Total:</label><input type="text" name="guest_total" readonly>-->
           <input type="submit" name="submit" style="font-weight: bold;" >
           <a href="index.php#guest">Back</a>
         </form>
