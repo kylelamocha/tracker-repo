@@ -25,7 +25,7 @@
     if(mysqli_query($database, $sql)){
         $alert = "Bill added successfully!";
         echo "<script type='text/javascript'>alert('$alert');</script>";
-        header("Location: index.php#guest");
+        header("Location: bill_form.php");
     } else{
         echo "ERROR: Hush! Sorry $sql. " 
             . mysqli_error($database);
