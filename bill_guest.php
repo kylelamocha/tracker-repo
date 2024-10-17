@@ -58,7 +58,7 @@ input[type=submit]:hover {
           <label>Guest Status:</label><input type="text" value="<?php echo $row['guest_status']; ?>" name="guest_status" readonly> 
           <label>Guest Rate:</label><input type="text" value="<?php echo $row['guest_rate']; ?>" name="guest_rate" readonly>
           <label>Guest Time Out:</label><input type="datetime-local" id="guest_timeout" name="guest_timeout" required><br>
-          <label>Additional Fee (Optional):</label><input type="text" name="add_fee" >  
+          <label>Additional Fee (Optional):</label><input type='hidden' value='0' name='add_fee'><input type="text" name="add_fee" >  
           <!--<label>Total Hours:</label><input type="text" name="guest_hrs" readonly>   
           <label>Total:</label><input type="text" name="guest_total" readonly>-->
           <input type="submit" name="submit" style="font-weight: bold;" >

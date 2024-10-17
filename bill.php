@@ -16,8 +16,8 @@
 
     $hoursDiff = $secondsDiff / 3600;
 
-    $g_fee = $_REQUEST['add_fee'];
-    $total = $g_rate + $g_fee;
+    //$g_fee = $_REQUEST['add_fee'];
+    $total = $g_rate+ $g_fee['add_fee'];
 
    // Performing insert query execution
     $sql = "INSERT INTO bill (bill_id, g_id, guest_name, guest_timein, guest_timeout, guest_rate, guest_status, guest_hrs, add_fee, g_total) VALUES (NULL, '$g_id','$g_name', '$time1','$time2','$g_rate', '$g_stat', '$hoursDiff', '$g_fee', '$total')";
