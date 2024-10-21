@@ -1,7 +1,9 @@
 <?php
     session_start(); 
     include "db.php";
-
+    
+    $id=$_GET['id'];
+    //$query=mysqli_query($database,"select * from `bill` where g_id='$id'");
     $g_id = $_REQUEST['g_id'];
     $g_name = $_REQUEST['guest_name'];
     $time1 = $_REQUEST['guest_timein'];
@@ -25,7 +27,7 @@
     if(mysqli_query($database, $sql)){
         $alert = "Bill added successfully!";
         echo "<script type='text/javascript'>alert('$alert');</script>";
-        header("Location: bill_form.php");
+        header("Location:receipt.php?id=$id");
     } else{
         echo "ERROR: Hush! Sorry $sql. " 
             . mysqli_error($database);
