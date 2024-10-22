@@ -23,6 +23,9 @@
       <a class="nav-link active" data-toggle="tab" href="#home"><b>Home</b></a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#guest"><b>Guest List</b></a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#products"><b>Products</b></a>
     </li>
     <li class="nav-item">
@@ -38,9 +41,120 @@
   <div class="tab-content">
     <div id="home" class="container tab-pane active"><br>
       <h3>HOME</h3>
-      <a href="login.php">LOGOUT</a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <a href="login.php" >LOGOUT</a><br><br>
+
+      
+
+      
+      
     </div>
+
+    <div id="guest" class="container tab-pane fade"><br>
+    <h3>Guest List</h3><br>
+
+    <h3 style="font-size: 16px;">Guests' that are Currently Time In</h3>
+      <table>
+      <tr>
+      <th style="text-align: center;">Guest No</th>
+      <th style="text-align: center;">Guest Name</th>
+      <th style="text-align: center;">Time In</th>
+      <th style="text-align: center;">Guest Rate</th>
+      <th style="text-align: center;">Guest Status</th>
+      <th style="text-align: center;">Guest Current Status</th>
+      </tr>
+       
+      <?php
+                  include_once 'db.php';
+                  $result = mysqli_query($database,"SELECT * FROM guest_tbl");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                   <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                      $dateString = $row['guest_timein'];
+                      $dateObject = new DateTime($dateString);
+                    ?>
+       <tr>
+      <td style="text-align: center;"><?php echo $row['g_id']?? '' ; ?></td>
+      <td style="text-align: center;"><?php echo $row['guest_name']?? '' ; ?></td>
+      <td style="text-align: center;"><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
+      <td style="text-align: center;"><?php echo $row['guest_rate']?? '' ; ?></td>
+      <td style="text-align: center;"><?php echo $row['guest_status']?? '' ; ?></td>
+      <td style="text-align: center;"><?php echo $row['guest_desc']?? '' ; ?></td>
+
+      <?php
+                    $i++;
+                    }
+                    ?>
+       </tr>
+       <?php
+                    }
+                    else{
+                        echo "No guest found";
+                    }
+                    ?>
+      </table>
+
+      <br><h3 style="font-size: 16px;">Guests' that are Timed Out</h3>
+    <table>
+      <tr>
+        <th>Guest No</th>
+        <th>Guest Name</th>
+        <th>Time In</th>
+        <th>Time out</th>
+        <th>Total Hours</th>
+        <th>Guest Rate</th>
+        <th>Guest Status</th>
+        <th>Guest Current Status</th>
+        <th>Additional Fee</th>
+        <th>Total</th>
+      
+      </tr>
+      <?php
+                  include_once 'db.php';
+                  $result = mysqli_query($database,"SELECT * FROM bill");
+                  ?>
+                  <?php
+                    if (mysqli_num_rows($result) > 0) {
+                  ?>
+                   <?php
+                    $i=0;
+                    while($row = mysqli_fetch_array($result)) {
+                      $dateString = $row['guest_timein'];
+                      $dateObject = new DateTime($dateString);
+                    ?>
+
+      <tr>
+        <td style="text-align: center;"><?php echo $row['g_id']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['guest_name']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
+        <td style="text-align: center;"><?php echo $row['guest_timeout']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['guest_hrs']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['guest_rate']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['guest_status']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['guest_desc']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['add_fee']?? '' ; ?></td>
+        <td style="text-align: center;"><?php echo $row['g_total']?? '' ; ?></td>
+      
+      <?php
+                    $i++;
+                    }
+                    ?>
+      </tr>
+      
+
+      <?php
+                    }
+                    else{
+                        echo "No guest found";
+                    }
+                    ?>
+    </table>
+
+    </div>
+
     <div id="products" class="container tab-pane fade"><br>
       <h3>Products Section</h3>
       <!--<button class="modal-button" href="#myModal3">Add Product</button>-->
@@ -181,7 +295,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Add Category</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                 
+                <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">

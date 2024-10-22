@@ -22,9 +22,12 @@
     $total = $g_rate+ $g_fee['add_fee'];
 
    // Performing insert query execution
-    $sql = "INSERT INTO bill (bill_id, g_id, guest_name, guest_timein, guest_timeout, guest_rate, guest_status, guest_hrs, add_fee, g_total) VALUES (NULL, '$g_id','$g_name', '$time1','$time2','$g_rate', '$g_stat', '$hoursDiff', '$g_fee', '$total')";
+    $sql = "INSERT INTO bill (bill_id, g_id, guest_name, guest_timein, guest_timeout, guest_rate, guest_status, guest_desc, guest_hrs, add_fee, g_total) VALUES (NULL, '$g_id','$g_name', '$time1','$time2','$g_rate', '$g_stat', default, '$hoursDiff', '$g_fee', '$total')";
+            
+    //$deleteQuery = "DELETE from guest_tbl where g_id='$id'";
 
     if(mysqli_query($database, $sql)){
+        mysqli_query($database,"DELETE from guest_tbl where g_id='$id'");
         $alert = "Bill added successfully!";
         echo "<script type='text/javascript'>alert('$alert');</script>";
         header("Location:receipt.php?id=$id");
