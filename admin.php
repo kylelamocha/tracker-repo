@@ -28,7 +28,7 @@
       <a class="nav-link active" data-toggle="tab" href="#home"><b>Home</b></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="guest_list.php"><b>Guest</b></a>
+      <a class="nav-link" data-toggle="tab" href="#guest"><b>Guest</b></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="tab" href="#products"><b>Products</b></a>
