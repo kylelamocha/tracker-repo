@@ -85,8 +85,9 @@
           <th scope="col">Guest No</th>
           <th scope="col">Guest Name</th>
           <th scope="col">Guest Date and Time In</th>
-          <th scope="col">Guest Status</th>
-          <th scope="col">Rate</th>
+          <!--<th scope="col">Time Out</th>-->
+          <th scope="col">Status</th>
+          <th scope="col">Guest Rate</th>
           <th scope="col">Current status</th>
           <!--<th scope="col">Order  (Optional)</th>-->
           <th scope="col">Action</th>
@@ -113,6 +114,7 @@
           <td data-label="Guest No"><?php echo $row['g_id']?? '' ; ?></td>
           <td data-label="Guest Name"><?php echo $row['guest_name']??''; ?></td>
           <td data-label="Guest Date and Time In"><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
+
           <td data-label="Guest Status"><?php echo $row['guest_status']??''; ?></td>
           <td data-label="Rate"><?php echo $row['guest_rate']??''; ?></td>
           <td data-label="Current status"><?php echo $row['guest_desc']??''; ?></td>
@@ -121,7 +123,7 @@
             <a href="edit_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-pencil-square-o"></i></a>
             <a href="delete_guest.php?id=<?php echo $row['g_id']?>" onclick="return confirm('Are you sure?')" class="btn_guest"><i class="fa fa-trash"></i></a>
           </td>
-          <td data-label="TimeOut"><a href="bill_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
+          <td data-label="TimeOut"><a href="timeout.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
         </tr>
         <?php
             $i++;

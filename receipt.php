@@ -107,6 +107,7 @@
             <p style="font-size: 14px;"><strong>Guest Name:</strong> <?php echo $row['guest_name']; ?></p>
             <p style="font-size: 14px;"><strong>Check in:</strong> <?php echo $dateObject->format('d/m/y h:i A'); ?></p>
             <p style="font-size: 14px;"><strong>Check out:</strong> <?php echo $dateObj->format('d/m/y h:i A'); ?></p>
+            <p style="font-size: 14px;"><strong>Addtional Fee:</strong> <?php echo $row['add_fee']; ?></p>
             <p style="font-size: 14px;"><strong>Total Hours:</strong> <?php echo $row['guest_hrs']; ?></p>
         </div>
 

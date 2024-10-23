@@ -4,7 +4,7 @@
         $query=mysqli_query($database,"select * from `guest_tbl` where g_id='$id'");
         $row=mysqli_fetch_array($query);
         $dateString = $row['guest_timein'];
-        $dateObject = new DateTime($dateString);
+        $dateObject = new DateTime($dateString);  
      
 ?>
 <!DOCTYPE html>
@@ -59,9 +59,12 @@ input[type=submit]:hover {
           <label>Guest Rate:</label><input type="text" value="<?php echo $row['guest_rate']; ?>" name="guest_rate" readonly>
           <label>Guest Time Out:</label><input type="datetime-local" id="guest_timeout" name="guest_timeout" required><br>
           <label>Additional Fee (Optional):</label><input type='hidden' value='0' name='add_fee'><input type="text" name="add_fee" >  
-          <!--<label>Total Hours:</label><input type="text" name="guest_hrs" readonly>   
+          <!--<label>Total Hours:</label><input type="text" name="guest_hrs" value="" readonly>   
+         
           <label>Total:</label><input type="text" name="guest_total" readonly>-->
+          
           <input type="submit" name="submit" style="font-weight: bold;" >
+          
           <a href="index.php#guest">Back</a>
         </form>
 </body>
