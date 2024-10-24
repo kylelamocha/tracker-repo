@@ -4,9 +4,9 @@
 	
 	$prodName=$_POST['prod_name'];
 	$prodPrice=$_POST['prod_price'];
-    $prodStock=$_POST['prod_stock'];
+    $prodCode=$_POST['code'];
 	$prodCategory=$_POST['category_id'];
 	
-	mysqli_query($database,"update `products` set prod_name='$prodName', prod_price='$prodPrice', prod_stock='$prodStock', category_id='$prodCategory' where prod_ID='$id'");
-	header('location:admin.php');
+	mysqli_query($database,"update `products` set prod_name='$prodName', prod_price='$prodPrice', code='$prodCode', category_id='$prodCategory' where prod_ID='$id'");
+	header('location:menu.php');
 ?>

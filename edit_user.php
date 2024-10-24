@@ -54,7 +54,7 @@ input[type=submit]:hover {
                 <label>Change Password:</label><input type="text" value="<?php echo $row['password']; ?>" name="password"><br><br>
                 
                 <input type="submit" name="submit" style="font-weight: bold;">
-                <a href="admin.php#users">Back</a>
+                <a href="user.php">Back</a>
         </form>
 </body>
 </html>

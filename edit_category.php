@@ -49,12 +49,12 @@ input[type=submit]:hover {
 </head>
 <body>
         <h2>Edit Category</h2>
-        <form method="POST" action="update_category.php?id=<?php echo $id; ?>">
+        <form method="POST" action="update_cat.php?id=<?php echo $id; ?>">
                 <label>Category ID:</label><input type="text" value="<?php echo $row['ID']; ?>" name="ID">
                 <label>Category Name:</label><input type="text" value="<?php echo $row['name']; ?>" name="name"><br><br>
                 
                 <input type="submit" name="submit" style="font-weight: bold;">
-                <a href="admin.php">Back</a>
+                <a href="categories.php">Back</a>
         </form>
 </body>
 </html>

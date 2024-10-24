@@ -50,9 +50,9 @@ input[type=submit]:hover {
         <form method="POST" action="update.php?id=<?php echo $id; ?>">
                 <label>Product name:</label><input type="text" value="<?php echo $row['prod_name']; ?>" name="prod_name">
                 <label>Product price:</label><input type="text" value="<?php echo $row['prod_price']; ?>" name="prod_price">
-                <label>Product stock:</label><input type="text" value="<?php echo $row['prod_stock']; ?>" name="prod_stock">
+                <label>Code:</label><input type="text" value="<?php echo $row['code']; ?>" name="code">
                 <label>Product Category:</label>
-                <select name="category" id="category" class="custom-select browser-default" required>
+                <select name="category_id" id="category_id" class="custom-select browser-default" required>
                   <?php
                     include_once 'db.php';
                     $result = mysqli_query($database, "SELECT * FROM category_list");
@@ -79,7 +79,7 @@ input[type=submit]:hover {
 
                 
                 <input type="submit" name="submit" style="font-weight: bold;" >
-                <a href="admin.php#products">Back</a>
+                <a href="menu.php">Back</a>
         </form>
 </body>
 </html>
