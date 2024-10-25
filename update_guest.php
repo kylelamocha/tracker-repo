@@ -8,5 +8,6 @@
 	
 	
 	mysqli_query($database,"update `guest_tbl` set guest_name='$guestName', guest_status='$guestStatus', guest_rate=' $guestRate' where g_id='$id'");
-	header('location:index.php#guest');
+	echo "<script>alert('Guest updated successfully!'); window.location.href='index.php#guest';</script>";
+	//header('location:index.php#guest');
 ?>

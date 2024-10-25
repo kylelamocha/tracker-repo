@@ -19,12 +19,15 @@
 
     $hoursDiff = $secondsDiff / 3600;
 
+
+    //if($hoursDiff <= 3 ){}
     $sql = "INSERT INTO time_out (Pid, g_id, guest_name, guest_timein, guest_timeout, guest_rate, guest_status, g_desc, total_hrs, date_created) VALUES (NULL, '$g_id','$g_name', '$time1','$time2','$g_rate', '$g_stat','$g_desc', '$hoursDiff' ,CURRENT_TIMESTAMP)";
 
     if(mysqli_query($database, $sql)){
-        $alert = "Guest timed out successfully!";
-        echo "<script type='text/javascript'>alert('$alert');</script>";
-        header("Location:form.php?id=$id");
+        //$alert = "Guest timed out successfully!";
+        //echo "<script type='text/javascript'>alert('$alert');</script>";
+        //header("Location:form.php?id=$id");
+        echo "<script>alert('Guest timed out successfully!'); window.location.href='form.php?id=$id';</script>";
     } else{
         echo "ERROR: Hush! Sorry $sql. " 
             . mysqli_error($database);

@@ -8,7 +8,7 @@
 <body>
 <?php
 	require 'db.php';
-	$result = mysqli_query($database, 'select * from products');
+	$result = mysqli_query($database, "SELECT * FROM products"); //'select * from products'
 ?>
 <a href="index.php#guest">Back</a>
 <table cellpadding="2" cellspacing="2" border="0">
@@ -23,7 +23,7 @@
 			<td><?php echo $product->prod_ID; ?></td>
 			<td><?php echo $product->prod_name; ?></td>
 			<td><?php echo $product->prod_price; ?></td>
-			<td><a href="cart.php?id=<?php echo $product->prod_ID; ?>">Order Now</a></td>
+			<td><a href="cart.php?id=<?php echo $product->prod_ID; ?>">Order</a></td>
 		</tr>
 	<?php } ?>
 </table>

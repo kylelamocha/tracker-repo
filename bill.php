@@ -22,9 +22,10 @@
 
     if(mysqli_query($database, $sql)){
         mysqli_query($database,"DELETE from guest_tbl where g_id='$id'");
-        $alert = "Bill added successfully!";
-        echo "<script type='text/javascript'>alert('$alert');</script>";
-        header("Location:receipt.php?id=$id");
+        //$alert = "Bill added successfully!";
+        //echo "<script type='text/javascript'>alert('$alert');</script>";
+        //header("Location:receipt.php?id=$id");
+        echo "<script>alert('Thanks for staying! Directing to the receipt section.'); window.location.href='receipt.php?id=$id';</script>";
     } else{
         echo "ERROR: Hush! Sorry $sql. " 
             . mysqli_error($database);

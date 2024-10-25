@@ -8,11 +8,12 @@
 <body>
 
 <div class="container">
-<!--<h3>Category List</h3>-->
+<br>
+<h3>Category List</h3>
 <!--button for modal-->
-<br><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<br><!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
     Add Category
-</button>
+</button>-->
  <!-- Modal -->
  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

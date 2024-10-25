@@ -2,5 +2,6 @@
 	$id=$_GET['id'];
 	include('db.php');
 	mysqli_query($database,"delete from `products` where prod_ID='$id'");
-	header('location:menu.php');
+	echo "<script>alert('Product is deleted!'); window.location.href='menu.php';</script>";
+	//header('location:menu.php');
 ?>

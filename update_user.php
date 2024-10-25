@@ -7,5 +7,6 @@
 
 	
 	mysqli_query($database,"update `users` set username='$userName', password='$password' where id='$id'");
-	header('location:admin.php');
+	echo "<script>alert('User updated successfully!'); window.location.href='user.php';</script>";
+	//header('location:admin.php');
 ?>

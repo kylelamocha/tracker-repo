@@ -17,9 +17,10 @@ $sql = "INSERT INTO products (prod_ID, code, prod_img, prod_name, prod_price, ca
 $result=mysqli_query($database,$sql);
 
 if (move_uploaded_file($tempname, $folder)) {
-    $alert = "<h3>&nbsp; Product Image uploaded successfully!</h3>";
-    echo "<script type='text/javascript'>alert('$alert');</script>";
-    header("Location: menu.php");
+    //$alert = "<h3>&nbsp; Product Image uploaded successfully!</h3>";
+    //echo "<script type='text/javascript'>alert('$alert');</script>";
+    //header("Location: menu.php");
+    echo "<script>alert('Product details uploaded successfully!'); window.location.href='menu.php';</script>";
 }else{
     echo "ERROR: Hush! Sorry $sql. " 
         . mysqli_error($database);

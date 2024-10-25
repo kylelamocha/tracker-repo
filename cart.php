@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cart Section</title>
 </head>
 <body>
-
+	
 <?php
 session_start ();
 require 'db.php';
 require 'item.php';
 if (isset ( $_GET ['id'] ) && !isset($_POST['update'])) {
 
-	$result = mysqli_query ( $database, 'select * from products where prod_ID=' . $_GET ['id'] );
+	//$result = mysqli_query ( $database, 'select * from products where prod_ID=' . $_GET ['id'] );
+	//$result = mysqli_query($database, 'select products.prod_ID, products.prod_name, products.prod_price FROM products inner join guest_tbl on products.prod_ID = guest_tbl.g_id  ');
+	//$result = mysqli_query($database, 'select products.prod_ID, products.prod_name, products.prod_price FROM products');
+	$result = mysqli_query($database, 'select * from products left join guest_tbl on guest_tbl.g_id = products.prod_ID where prod_ID=' . $_GET ['id']);
 	$product = mysqli_fetch_object ( $result );
 	$item = new Item ();
 	$item->id = $product->prod_ID;
 	$item->name = $product->prod_name;
 	$item->price = $product->prod_price;
+	$item->gID = $product->g_id;
+
 	$item->quantity = 1;
 	// Check product is existing in cart
 	$index = - 1;
@@ -65,19 +70,19 @@ if(isset($_POST['update'])) {
 		$_SESSION ['cart'] = $cart;
 	}
 	else
-		$error = 'Quantity is Invalid';
+		$error = 'Quantity is InValid';
 }
 
 ?>
 <?php echo isset($error) ? $error : ''; ?>
-<form method="post">
+<form method="POST">
 	<table cellpadding="2" cellspacing="2" border="1">
 		<tr>
 			<th>Option</th>
 			<th>Id</th>
 			<th>Name</th>
 			<th>Price</th>
-			<th>Quantity <input
+			<th>Quantity<input
 				type="hidden" name="update">
 			</th>
 			<th>Sub Total</th>
@@ -92,14 +97,16 @@ if(isset($_POST['update'])) {
 		<tr>
 			<td><a href="cart.php?index=<?php echo $index; ?>"
 				onclick="return confirm('Are you sure?')">Delete</a>
-                <a href="checkout.php?id=<?php echo $index; ?>"
-				>Checkout</a></td>
+				<a href="checkout.php?id=<?php echo $index; ?>"
+				>Checkout</a>
+			</td>
 			<td><?php echo $cart[$i]->id; ?></td>
 			<td><?php echo $cart[$i]->name; ?></td>
 			<td><?php echo $cart[$i]->price; ?></td>
 			<td><input type="text" value="<?php echo $cart[$i]->quantity; ?>"
 				style="width: 50px;" name="quantity[]"></td>
 			<td><?php echo $cart[$i]->price * $cart[$i]->quantity; ?></td>
+			
 		</tr>
 		<?php
 		$index ++;
@@ -114,7 +121,5 @@ if(isset($_POST['update'])) {
 <br>
 <a href="order_guest.php">Back</a>
 
-
-    
 </body>
 </html>

@@ -16,9 +16,11 @@ $sql = "INSERT INTO guest_tbl  VALUES (NULL, '$guest_name',
     '$guest_timein','$guest_status', default, '$guest_rate', CURRENT_TIMESTAMP)";
 
 if(mysqli_query($database, $sql)){
-    $alert = "Guest added successfully!";
-    echo "<script type='text/javascript'>alert('$alert');</script>";
-    header("Location: index.php#guest");
+   // $alert = "Guest added successfully!";
+    //echo "<script type='text/javascript'>alert('$alert');</script>";
+    //header("Location: index.php#guest");
+    echo "<script>alert('Guest added successfully!'); window.location.href='index.php#guest';</script>";
+
 } else{
     echo "ERROR: Hush! Sorry $sql. " 
         . mysqli_error($database);
