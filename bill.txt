@@ -10,7 +10,7 @@
     $time2 = $_REQUEST['guest_timeout'];
     $g_rate = $_REQUEST['guest_rate'];
     $g_stat = $_REQUEST['guest_status'];
-    $t_hrs = $_REQUEST['guest_hrs'];
+    $t_hrs = $_REQUEST['total_hrs'];
    
     //$g_fee = $_REQUEST['add_fee'];
     $total = $g_rate + $g_fee['add_fee'];

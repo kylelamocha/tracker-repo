@@ -1,7 +1,7 @@
 <?php
         include('db.php');
         $id=$_GET['id'];
-        $query=mysqli_query($database,"select * from `guest_tbl` where g_id='$id'");
+        $query=mysqli_query($database,"select * from `g_timein` where g_id='$id'");
         $row=mysqli_fetch_array($query);
 ?>
 <!DOCTYPE html>

@@ -27,7 +27,7 @@
             <tr>
             <?php
                   include_once 'db.php';
-                  $result = mysqli_query($database,"SELECT * FROM guest_tbl");
+                  $result = mysqli_query($database,"SELECT * FROM g_timein");
                   ?>
                   <?php
                     if (mysqli_num_rows($result) > 0) {
@@ -72,8 +72,7 @@
             <th scope="col">Total Hours</th>
             <th scope="col">Status</th>
             <th scope="col">Rate</th>
-            <th scope="col">Description</th>
-            <th scope="col">Additional Fee</th>
+            <th scope="col">Payment Method</th>
             <th scope="col">Total</th>
             </tr>
         </thead>
@@ -81,7 +80,7 @@
             <tr>
             <?php
                   include_once 'db.php';
-                  $result = mysqli_query($database,"SELECT * FROM bill");
+                  $result = mysqli_query($database,"SELECT * FROM g_timeout");
                   ?>
                   <?php
                     if (mysqli_num_rows($result) > 0) {
@@ -89,21 +88,20 @@
                    <?php
                     $i=0;
                     while($row = mysqli_fetch_array($result)) {
-                        $dateString = $row['guest_timein'];
-                        $dateString1 = $row['guest_timeout'];
+                        $dateString = $row['start_time'];
+                        $dateString1 = $row['end_time'];
                         $dateObject = new DateTime($dateString);
                         $dateObj = new DateTime($dateString1);
                     ?>
             <th scope="row"><?php echo $row['g_id']?? '' ; ?></th>
-            <td><?php echo $row['guest_name']?? '' ; ?></td>
+            <td><?php echo $row['g_name']?? '' ; ?></td>
             <td><?php echo $dateObject->format('d/m/y h:i A'); ?></td>
             <td><?php echo $dateObj->format('d/m/y h:i A'); ?></td>
-            <td><?php echo $row['guest_hrs']?? '' ; ?></td>
-            <td><?php echo $row['guest_status']?? '' ; ?></td>
-            <td><?php echo $row['guest_rate']?? '' ; ?></td>
-            <td><?php echo $row['guest_desc']?? '' ; ?></td>
-            <td><?php echo $row['add_fee']?? '' ; ?></td>
-            <td><?php echo $row['g_total']?? '' ; ?></td>
+            <td><?php echo $row['total_hrs']?? '' ; ?></td>
+            <td><?php echo $row['customer_type']?? '' ; ?></td>
+            <td><?php echo $row['g_rate']?? '' ; ?></td>
+            <td><?php echo $row['p_method']?? '' ; ?></td>
+            <td><?php echo $row['total_price']?? '' ; ?></td>
             </tr> 
                 <?php
                     $i++;

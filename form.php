@@ -1,10 +1,15 @@
 <?php
         include('db.php');
         $id=$_GET['id'];
-        $query=mysqli_query($database,"select * from `time_out` where g_id='$id'");
+        $query=mysqli_query($database,"select * from `g_timeout` where g_id='$id' ");
         $row=mysqli_fetch_array($query); 
+        $dateString = $row['start_time'];
+        $datestring = $row['end_time'];
+        $dateObject = new DateTime($dateString);
+        $dateObj = new DateTime($datestring);
      
 ?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,47 +27,46 @@
 <form  method="POST" action="#">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Guest ID:</label>
+      <label><b>Guest ID:</b></label>
       <input type="text" class="form-control" value="<?php echo $row['g_id']; ?>" name="g_id" readonly>
     </div>
     <div class="form-group col-md-6">
-      <label>Guest name:</label>
-      <input type="text" class="form-control" value="<?php echo $row['guest_name']; ?>" name="guest_name" readonly>
+      <label><b>Guest Status:</b></label>
+      <input type="text" class="form-control" value="<?php echo $row['customer_type']; ?>" name="guest_status" readonly>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Guest Time In:</label>
-      <input type="text" class="form-control" value="<?php echo $row['guest_timein']; ?>" name="guest_timein" readonly>
+      <label><b>Guest Time In:</b></label>
+      <input type="text" class="form-control" value="<?php echo $dateObject->format('d/m/y h:i A'); ?>" name="g_start" readonly>
     </div>
     <div class="form-group col-md-6">
-      <label>Guest Time Out:</label>
-      <input type="text" class="form-control" value="<?php echo $row['guest_timeout']; ?>" name="guest_timeout" readonly>
+      <label><b>Guest Time Out:</b></label>
+      <input type="text" class="form-control" value="<?php echo $dateObj->format('d/m/y h:i A'); ?>" name="g_end" readonly>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Guest Status:</label>
-      <input type="text" class="form-control" value="<?php echo $row['guest_status']; ?>" name="guest_status" readonly>
+      <label><b>Guest Rate:</b></label>
+      <input type="text" class="form-control" value="PHP <?php echo $row['g_rate']; ?>" name="g_rate" readonly>
     </div>
     <div class="form-group col-md-6">
-      <label>Guest Rate:</label>
-      <input type="text" class="form-control" value="PHP <?php echo $row['guest_rate']; ?>" name="guest_rate" readonly>
+      <label><b>Total Hours:</b></label>
+      <input type="text" class="form-control" value="<?php echo $row['total_hrs']; ?>" name="total_hrs" readonly>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Total Hours:</label>
-      <input type="text" class="form-control" value="<?php echo $row['guest_status']; ?>" name="guest_status" readonly>
+      <label><b>Total:</b></label>
+      <input type="text" class="form-control" value="PHP <?php echo $row['total_price']; ?>" name="total_price" readonly>
     </div>
-  </div>
-  <div class="form-row">
     <div class="form-group col-md-6">
-      <label>Additional Fee:</label>
-      <input type="text" class="form-control" name="add_fee">
+      <label><b>Payment Method:</b></label>
+      <input type="text" class="form-control" value="<?php echo $row['p_method']; ?>" name="p_method" readonly>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Proceed to Billing</button>
+  <a href="receipt.php?id=<?php echo $row['g_id']?>" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Proceed to Receipt</a>
+  <!--<button type="submit" class="btn btn-primary" >Proceed to Billing</button>-->
 </form>
 </div>
 

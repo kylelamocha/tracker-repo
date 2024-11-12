@@ -12,8 +12,8 @@ $guest_rate =  $_REQUEST['guest_rate'];
 
 
 // Performing insert query execution
-$sql = "INSERT INTO guest_tbl  VALUES (NULL, '$guest_name', 
-    '$guest_timein','$guest_status', default, '$guest_rate', CURRENT_TIMESTAMP)";
+$sql = "INSERT INTO g_timein  VALUES (NULL, '$guest_name', 
+    '$guest_timein','$guest_status', '$guest_rate', default, CURRENT_TIMESTAMP)";
 
 if(mysqli_query($database, $sql)){
    // $alert = "Guest added successfully!";

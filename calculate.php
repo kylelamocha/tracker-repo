@@ -19,18 +19,26 @@
 
     $hoursDiff = $secondsDiff / 3600;
 
+    //$add_fee = 0;
+   
+    if($g_stat == 'Regular' && $hoursDiff > 3){  
+        $add_fee = 25 * $hoursDiff;
+    }elseif ($g_stat == 'Student' && $hoursDiff > 3){
+        $add_fee = 20 * $hoursDiff;
+    }else{
+        $sql = "INSERT INTO time_out (Pid, g_id, guest_name, guest_timein, guest_timeout, g_desc, guest_status, guest_rate, total_hrs, add_fee, date_created) 
+        VALUES (NULL, '$g_id','$g_name', '$time1','$time2','$g_desc', '$g_stat', '$g_rate', '$hoursDiff', '$add_fee', CURRENT_TIMESTAMP)";
+        
+        $result = mysqli_query($database, $sql);
+        if($result){
+        echo "<script>alert('Guest timed out successfully!'); 
+        window.location.href='form.php?id=$id';</script>";
+        }else{
+            echo "ERROR: Hush! Sorry $sql. " 
+                . mysqli_error($database);
+        }
 
-    //if($hoursDiff <= 3 ){}
-    $sql = "INSERT INTO time_out (Pid, g_id, guest_name, guest_timein, guest_timeout, guest_rate, guest_status, g_desc, total_hrs, date_created) VALUES (NULL, '$g_id','$g_name', '$time1','$time2','$g_rate', '$g_stat','$g_desc', '$hoursDiff' ,CURRENT_TIMESTAMP)";
-
-    if(mysqli_query($database, $sql)){
-        //$alert = "Guest timed out successfully!";
-        //echo "<script type='text/javascript'>alert('$alert');</script>";
-        //header("Location:form.php?id=$id");
-        echo "<script>alert('Guest timed out successfully!'); window.location.href='form.php?id=$id';</script>";
-    } else{
-        echo "ERROR: Hush! Sorry $sql. " 
-            . mysqli_error($database);
     }
+   
     
 ?>

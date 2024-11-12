@@ -88,7 +88,6 @@
           <!--<th scope="col">Time Out</th>-->
           <th scope="col">Status</th>
           <th scope="col">Guest Rate</th>
-          <th scope="col">Current status</th>
           <!--<th scope="col">Order  (Optional)</th>-->
           <th scope="col">Action</th>
           <th scope="col">Time Out</th>
@@ -98,7 +97,7 @@
         <tr>
         <?php
                         include_once 'db.php';
-                        $result = mysqli_query($database,"SELECT * FROM guest_tbl");
+                        $result = mysqli_query($database,"SELECT * FROM g_timein");
                       ?>
                       <?php
                         if (mysqli_num_rows($result) > 0) {
@@ -117,13 +116,11 @@
 
           <td data-label="Guest Status"><?php echo $row['guest_status']??''; ?></td>
           <td data-label="Rate"><?php echo $row['guest_rate']??''; ?></td>
-          <td data-label="Current status"><?php echo $row['guest_desc']??''; ?></td>
-          
           <td data-label="Edit/Delete">
             <a href="edit_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-pencil-square-o"></i></a>
             <a href="order_guest.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-cutlery"></i></a>
           </td>
-          <td data-label="TimeOut"><a href="timeout.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
+          <td data-label="TimeOut"><a href="time_out.php?id=<?php echo $row['g_id']?>" class="btn_guest"><i class="fa fa-check-square-o"></i></a></td>
         </tr>
         <?php
             $i++;

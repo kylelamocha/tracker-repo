@@ -1,10 +1,10 @@
 <?php
         include('db.php');
         $id=$_GET['id'];
-        $query=mysqli_query($database,"select * from `bill` where g_id='$id'");
+        $query=mysqli_query($database,"select * from `g_timeout` where g_id='$id'");
         $row=mysqli_fetch_array($query);
-        $dateString = $row['guest_timein'];
-        $date = $row['guest_timeout'];
+        $dateString = $row['start_time'];
+        $date = $row['end_time'];
         $dateObject = new DateTime($dateString);
         $dateObj = new DateTime($date)
 ?>
@@ -81,11 +81,39 @@
   margin-top: 20px;
   font-size: 10px;
   color: #999999;
+  
+  .button {
+    justify-content: center;
+    }
+   /* Default styles for the div */
+   #printable-div {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: lightgray;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Style for the print media */
+        @media print {
+            /* Hide everything else except for the printable div */
+            body * {
+                visibility: hidden;
+            }
+            #printable-div, #printable-div * {
+                visibility: visible;
+            }
+            #printable-div {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
 }
 </style>
 </head>
 <body>
-    <div class="receipt-container" id="printableArea">
+    <div class="receipt-container" id="printable-div">
         <div class="receipt-header">
 			  <i class="fa-solid fa-chart-simple"></i>
 
@@ -102,13 +130,13 @@
             
         </div>
     
-      
-        <div class="receipt-details" id="print">
-            <p style="font-size: 14px;"><strong>Guest Name:</strong> <?php echo $row['guest_name']; ?></p>
-            <p style="font-size: 14px;"><strong>Check in:</strong> <?php echo $dateObject->format('d/m/y h:i A'); ?></p>
-            <p style="font-size: 14px;"><strong>Check out:</strong> <?php echo $dateObj->format('d/m/y h:i A'); ?></p>
-            <p style="font-size: 14px;"><strong>Addtional Fee:</strong> <?php echo $row['add_fee']; ?></p>
-            <p style="font-size: 14px;"><strong>Total Hours:</strong> <?php echo $row['guest_hrs']; ?></p>
+
+        <div class="receipt-details">
+            <p style="font-size: 14px;"><strong>Guest Name:</strong> <?php echo $row['g_name']; ?></p>
+            <p style="font-size: 14px;"><strong>Time in:</strong> <?php echo $dateObject->format('d/m/y h:i A'); ?></p>
+            <p style="font-size: 14px;"><strong>Time out:</strong> <?php echo $dateObj->format('d/m/y h:i A'); ?></p>
+            <p style="font-size: 14px;"><strong>Payment Method:</strong> <?php echo $row['p_method']; ?></p>
+            <p style="font-size: 14px;"><strong>Total Hours:</strong> <?php echo $row['total_hrs']; ?></p>
         </div>
 
         <!--<table class="receipt-table">
@@ -143,7 +171,7 @@
         </table>-->
 
         <div class="receipt-total">
-            <p>Total Amount: PHP<?php echo $row['g_total']; ?></p>
+            <p>Total Amount: PHP<?php echo $row['total_price']; ?></p>
         </div>
 
 		    <!--<div class="receipt-total">
@@ -152,10 +180,10 @@
 
         <div class="receipt-footer">
             <p>Thank you for your stay!</p>
-            <a href="index.php#guest">Back</a><br><br>   
-            <button onClick="window.print()">Print this receipt</button>
+            <a href="index.php#guest">Back</a><br><br>             
             <!--<input type="button" onclick="printDiv('printableArea')"/>-->
     </div>
+    <!--<button onclick="window.print()">Print Receipt</button>-->
 		<script src="./js/print.js"></script>
     </div>
 </body>
